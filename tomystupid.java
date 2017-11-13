@@ -1,1 +1,1 @@
-pineappl
+pineapl
