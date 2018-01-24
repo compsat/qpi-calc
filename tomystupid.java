@@ -1,3 +1,3 @@
-pineaple
+pineaples
 
 nope
