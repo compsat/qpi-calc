@@ -70,13 +70,22 @@ $(document).ready(function() {
 		course_units = [];
 		gradeValue = [];
 		grade_index = [];
+		currCourseCode = "";
+		ifUncredited = false;
 		
 		for (i=0; i<summSplit.length; i++) {
-			if (i%7==3) course_codes.push(summSplit[i]);
-			if (i%7==5) {
+			if (i%7==3) { 
+				currCourseCode = summSplit[i];
+				ifUncredited = currCourseCode.startsWith("INTAC") || currCourseCode.startsWith("PE") || currCourseCode.startsWith("NSTP");
+				if(ifUncredited)
+					continue;
+				else
+					course_codes.push(currCourseCode);
+			}
+			if (i%7==5 && !ifUncredited) {
 				course_units.push(summSplit[i]);
 			}
-			if (i%7==6) {
+			if (i%7==6 && !ifUncredited) {
 				if (summSplit[i]=="A") grade_index.push(1);
 				else if (summSplit[i]=="B+") grade_index.push(2);
 				else if (summSplit[i]=="B") grade_index.push(3);
