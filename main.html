@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46284584-12"></script>
+	<script>	
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+
+  		gtag('config', 'UA-46284584-12');
+		
+	</script>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 	<meta charset="UTF-8">
-	<meta name="description" content="Want to compute your QPI without waiting for AISIS to do so? Too lazy to use a spreadsheet program? Then try the new QPI Calculator from CompSAt’s RnD department!">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:image" content="http://qpi.compsat.org/qpi-promo.png">
+	<meta property="og:description" content="Want to compute your QPI without waiting for AISIS to do so? Too lazy to use a spreadsheet program? Then try the QPI Calculator from CompSAt’s RnD department!">
 
 	<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
@@ -41,13 +57,37 @@
 	<section id="qpi-page" class="page">
 		<div class="page-container">
 			<div class="input-card-container">
+			<h2 class="desc-top">Instructions <a data-toggle="modal" data-target="#myModal2" href=www.google.com>Here!</a></h2><br>
+			
+			<!-- Modal -->
+					<div class="modal fade" id="myModal2" role="dialog">
+						<div class="modal-dialog">
+						
+						  <!-- Modal content-->
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <button type="button" class="close" data-dismiss="modal">&times;</button>
+							  <h4 class="modal-title">Instructions</h4>
+							</div>					
+							<div class="modal-body">
+							  <p class="modal-p">Hello</p>
+							</div>
+						  </div>
+						</div>
+					</div>
+			
+			
 				<div class="card input-card">
 					<table class="input-table">
 						<tr>
+							<th>Course Code</th>
 							<th>Letter Mark</th>
 							<th>No. of Units</th>
 						</tr>
 						<tr class="input-row">
+							<td>
+								<input class="course-code"></input>
+							</td>
 							<td>
 								<select class="input-select grade-select" name="grade">
 									<option value="-" selected="selected">-</option>
@@ -71,18 +111,58 @@
 							</td>
 							<td class="delete-btn">x</td>
 						</tr>
-					</table>
-					<button class="add-btn">Add</button>
+					</table>					
+					<button class="addreset-btn add-btn">Add</button>
+					<button class="fill-btn" type="button" data-toggle="modal" data-target="#myModal">Fill</button>
+					<button class="addreset-btn reset-btn">Reset</button>
+					
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog">
+						
+						  <!-- Modal content-->
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <button type="button" class="close" data-dismiss="modal">&times;</button>
+							  <h4 class="modal-title">Auto Fill Up</h4>
+							</div>
+							<div class="modal-body">
+								<textarea class="txt-area"></textarea>
+							</div>
+							<div class="modal-footer">
+							<!-- button on close and to fill up -->
+							  <button type="button" class="modal-fill-btn" data-dismiss="modal">Fill Up</button>
+							  <button type="button" class="modal-cl-btn" data-dismiss="modal">Cancel</button>
+							</div>
+						  </div>
+						  
+						</div>
+					</div>
+					<!---->
+
 				</div>
 			</div>
 			<div class="output-card-container">
-				<div class="card output-card">
-					<span class="qpi-heading">Your QPI</span>
+				<div class="output-card">
+					<span class="qpi-heading">Your Semestral QPI</span>
 					<span class="qpi-display">-</span>
 				</div>
+				
+				<div class="output-card2">
+					<span class="qpi-heading">Target QPI</span>
+					<span class="qpi-display2 target-qpi">-</span>
+					<br><br>
+					<span class="qpi-heading">Enter Target End QPI</span>
+					<input class="qpi-display2 target-end" value="1.25"></input>
+					<br><br>
+					<span class="qpi-heading">Sem Units</span>
+					<input class="qpi-display2 sem-units" value="15"></input>	
+				</div>
+			
 				<small>Designed and developed by <a href="http://galacemiguel.github.io/">Miguel N. Galace</a>.</small>
 			</div>
 		</div>
 	</section>
 </body>
+
 </html>
