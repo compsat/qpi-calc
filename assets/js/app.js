@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
 	$(".input-table").on("mouseenter", ".input-row", function() {
 		if($(this).index() != 1 || $(".input-row").length != 1)
 			$(this).find(".delete-btn").css("visibility", "visible");
@@ -25,13 +26,14 @@ $(document).ready(function() {
 	});
 	
 	$(".reset-btn").on("click", function() {
-		$(".input-table").find("tr:gt(1)").remove();
-		qpi = "-";
-		targetQpi = "-";
-		updateQPI();
 		$(".input-row:eq(0) .course-code").val("");
 		$(".input-row:eq(0) .unit-select").val(3);
 		$(".input-row:eq(0) .grade-select option:eq('0')").prop('selected', true);
+		$(".input-table").find("tr:gt(1)").remove();
+		aisisRowTotal = 0;
+		qpi = "-";
+		targetQpi = "-";
+		updateQPI();
 	});
 
 	$(".input-card").on("change", ".input-select", updateQPI);
@@ -61,7 +63,7 @@ $(document).ready(function() {
 	});
 
 	qpi = "-";
-	targetQpi = "-";
+	targetQpi = "1.25";
 
 	function addSemClasses() {
 		summary = $(".txt-area").val();
@@ -97,6 +99,8 @@ $(document).ready(function() {
 		}
 		
 		rowTotal = $(".input-row").length;
+		initialRowTotal = rowTotal;
+		emptyTable = $(".input-row:eq(0) .grade-select option:eq('0')").is(':selected');
 		
 		for (i=0; i<course_codes.length; i++) {
 			currRow = rowTotal + i;
@@ -105,6 +109,8 @@ $(document).ready(function() {
 			$(".input-row:eq(" + currRow + ") .unit-select").val(course_units[i]);
 			$(".input-row:eq(" + currRow + ") .grade-select option:eq(" + grade_index[i] + ")").prop('selected', true);
 		}
+		if(emptyTable && initialRowTotal == 1)
+			$(".input-row:eq(0)").remove();
 	}
 
 	function updateQPI() {
@@ -134,24 +140,22 @@ $(document).ready(function() {
 			if (gradeSelectVal != "-") {
 				grade = parseFloat(gradeSelectVal);
 				units = parseFloat($(".input-row.aisis-rows:eq(" + i + ") .unit-select").val());
-				aisisGradeTotal += grade*units;
-				aisisUnitTotal += units;
 			}
 		}
 
 		if (isNaN(qpi)) {
-			qpi = ((gradeTotal-aisisGradeTotal)/(unitTotal-aisisUnitTotal)).toFixed(2);
+			qpi = (gradeTotal/unitTotal).toFixed(2);
 			setQPI(qpi);
 		} else {
-			qpi = ((gradeTotal-aisisGradeTotal)/(unitTotal-aisisUnitTotal)).toFixed(2);
+			qpi = (gradeTotal/unitTotal).toFixed(2);
 			animateQPI(Math.abs(qpi - parseFloat($(".qpi-display").text()))/20);
 		}
 		
 		if (isNaN(targetQpi)) {
-			targetQpi = Number((target*(aisisUnitTotal+Number(semUnits))-aisisGradeTotal)/Number(semUnits)).toFixed(2);
+			targetQpi = Number((target*(unitTotal+Number(semUnits))-gradeTotal)/Number(semUnits)).toFixed(2);
 			setTargetQPI(targetQpi);
 		} else {
-			targetQpi = Number((target*(aisisUnitTotal+Number(semUnits))-aisisGradeTotal)/semUnits).toFixed(2);
+			targetQpi = Number((target*(unitTotal+Number(semUnits))-gradeTotal)/Number(semUnits)).toFixed(2);
 			animateTargetQPI(Math.abs(targetQpi - parseFloat($(".target-qpi").text()))/20);
 		}
 	}
@@ -212,9 +216,12 @@ $(document).ready(function() {
 	function setTargetQPI(qpi) {
 		if (isNaN(qpi) || qpi > 4 || qpi < 0) {
 			$(".target-qpi").text("IMPOSSIBLE");
+			$(".target-qpi").css("font-size", "35pt");
 			targetQpi = "-";
 		}
-		else
+		else {
 			$(".target-qpi").text(qpi);
+			$(".target-qpi").css("font-size", "67pt");
+		}
 	}
 });
