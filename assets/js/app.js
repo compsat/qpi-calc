@@ -25,7 +25,7 @@ $(document).ready(function() {
 		updateQPI();
 	});
 	
-	$(".reset-btn").on("click", function() {
+	$(".res-btn").on("click", function() {
 		$(".input-row:eq(0) .course-code").val("");
 		$(".input-row:eq(0) .unit-select").val(3);
 		$(".input-row:eq(0) .grade-select option:eq('0')").prop('selected', true);
@@ -42,14 +42,14 @@ $(document).ready(function() {
     	updateQPI();
 	});
 	
-	$('.target-end').on('blur',function(){
+	/*$('.target-end').on('blur',function(){
 		if($('.target-end').val() > 4)
 			$('.target-end').val("4.00")
 		else if($('.target-end').val() < 0)
 			$('.target-end').val("0.00")
 		else if($('.target-end').val() == "")
 			$('.target-end').val("1.25")
-	});
+	});*/
 	
 	$('.sem-units').on('input',function(){
     	updateQPI();
@@ -184,6 +184,10 @@ $(document).ready(function() {
 	}
 	
 	var animateTargetQPI = function(step) {
+		if(isNaN(targetQpi) || targetQpi > 4 || targetQpi < 0) {
+			setTargetQPI("lolnope");
+			return;
+		}
 		window.setTimeout(function() {
 			if ($(".target-qpi").text() != targetQpi) {
 				gradeDisplay = parseFloat($(".target-qpi").text());
@@ -193,13 +197,14 @@ $(document).ready(function() {
 
 				if (step < 0.01)
 					step = 0.01;
-
+				//console.log("above: " + step);
+				
 				if ($(".target-qpi").text() < targetQpi)
 					addend = step;
 				else
 					addend = -step;
-
-				setTargetQPI((gradeDisplay + addend).toFixed(2));
+				//console.log("below: " + (Number(gradeDisplay) + Number(addend)));
+				setTargetQPI((Number(gradeDisplay) + Number(addend)).toFixed(2));
 			
 				animateTargetQPI(step);
 			}
@@ -216,12 +221,15 @@ $(document).ready(function() {
 	function setTargetQPI(qpi) {
 		if (isNaN(qpi) || qpi > 4 || qpi < 0) {
 			$(".target-qpi").text("IMPOSSIBLE");
-			$(".target-qpi").css("font-size", "35pt");
+			$(".target-qpi").css("font-size", "20pt");
+			$(".target-qpi").css("color", "red");
+			$(".target-qpi").css("margin-bottom", "100px");
 			targetQpi = "-";
 		}
 		else {
-			$(".target-qpi").text(qpi);
-			$(".target-qpi").css("font-size", "67pt");
+			$(".target-qpi").text(Number(qpi).toFixed(2));
+			$(".target-qpi").css("font-size", "50pt");
+			$(".target-qpi").css("color", "#383B37");
 		}
 	}
 });
