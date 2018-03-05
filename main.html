@@ -3,19 +3,20 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46284584-12"></script>
-	<script>	
+	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
   		gtag('js', new Date());
 
   		gtag('config', 'UA-46284584-12');
-		
+
 	</script>
-	
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+
+
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="og:image" content="http://qpi.compsat.org/qpi-promo.png">
@@ -46,37 +47,57 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="assets/js/app.js"></script>
+	<script src="assets/js/fontawesome-all.js"></script>
+
 </head>
 
 <body>
 	<header>
 		<a id="brandmark" href="http://compsat.org/"></a>
 		<h1>QPI Calculator</h1>
+
+
 	</header>
 
 	<section id="qpi-page" class="page">
 		<div class="page-container">
 			<div class="input-card-container">
 			<h2 class="desc-top">Instructions <a data-toggle="modal" data-target="#myModal2">Here!</a></h2><br>
-			
+
 			<!-- Modal -->
 					<div class="modal fade" id="myModal2" role="dialog">
 						<div class="modal-dialog">
-						
+
 						  <!-- Modal content-->
 						  <div class="modal-content">
 							<div class="modal-header">
 							  <button type="button" class="close" data-dismiss="modal">&times;</button>
 							  <h4 class="modal-title">Instructions</h4>
-							</div>					
+							</div>
 							<div class="modal-body">
-							  <p class="modal-p">Hello</p>
+
+							  <p class="modal-p">
+
+								HOW TO USE CUMULATIVE QPI CALCULATOR<br>
+								STEP 1: Copy grades from AISIS website.<br>
+								STEP 2: Click the FILL button and paste your grades in the pop-up text field. Click FILL UP to automatically add your grades into the app.<br>
+								STEP 3: Enter your TARGET END QPI in the provided text field<br>
+								STEP 4: Enter the number of units you have this current semester<br>
+								STEP 5: View TARGET QPI to see what QPI you need to get for the current semester to reach your TARGET END QPI<br><br>
+
+								NOTE: Subjects with an NSTP, INTAC, or PE course code is automatically excluded when filling up your grades<br>
+								</p>
+
+
+
+
+
 							</div>
 						  </div>
 						</div>
 					</div>
-			
-			
+
+
 				<div class="card input-card">
 					<table class="input-table">
 						<tr>
@@ -111,15 +132,15 @@
 							</td>
 							<td class="delete-btn">x</td>
 						</tr>
-					</table>					
+					</table>
 					<button class="addreset-btn add-btn">Add</button>
 					<button class="fill-btn" type="button" data-toggle="modal" data-target="#myModal">Fill</button>
 					<button class="addreset-btn res-btn">Reset</button>
-					
+
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" role="dialog">
 						<div class="modal-dialog">
-						
+
 						  <!-- Modal content-->
 						  <div class="modal-content">
 							<div class="modal-header">
@@ -135,7 +156,7 @@
 							  <button type="button" class="modal-cl-btn" data-dismiss="modal">Cancel</button>
 							</div>
 						  </div>
-						  
+
 						</div>
 					</div>
 					<!---->
@@ -147,18 +168,23 @@
 					<span class="qpi-heading">Your QPI</span>
 					<span class="qpi-display">-</span>
 				</div>
-				
+
+
+
 				<div class="output-card2">
 					<span class="qpi-heading">Target QPI</span>
+					<span data-tooltip="Current semester's QPI should be at least this to achieve my target cumulative QPI"><i class="fas fa-question-circle"></i></span></br>
 					<span class="qpi-display2 target-qpi">3.35</span>
 					<br><br>
 					<span class="qpi-heading">Enter Target End QPI</span>
+					<span data-tooltip="Cumulative QPI I want to achieve by the end of this semester"><i class="fas fa-question-circle"></i></span></br>
 					<input class="qpi-display2 target-end" value="3.35"></input>
 					<br><br>
 					<span class="qpi-heading">Sem Units</span>
-					<input class="qpi-display2 sem-units" value="18"></input>	
+					<span data-tooltip="Number of units being taken for the current semester"><i class="fas fa-question-circle"></i></span></br>
+					<input class="qpi-display2 sem-units" value="18"></input>
 				</div>
-			
+
 				<small>Designed and developed by <a href="http://galacemiguel.github.io/">Miguel N. Galace</a>, <a href="https://github.com/daniddelrio">Daniel Del Rio</a>, <a href="https://github.com/dancerwinter">Anne Manzano</a>, and <a href="https://github.com/a-penguin-mage">Chino Nava</a>.
 				</small>
 			</div>
