@@ -21,7 +21,10 @@ $(document).ready(function() {
 	});
 	
 	$(".modal-fill-btn").on("click", function() {
+		iniAisisRowTotal = $(".input-row.aisis-rows").length;
 		addSemClasses();
+		for(i = 0; i < iniAisisRowTotal; i++)
+			$(".input-row.aisis-rows:eq(0)").remove();
 		updateQPI();
 	});
 	
@@ -30,6 +33,7 @@ $(document).ready(function() {
 		$(".input-row:eq(0) .unit-select").val(3);
 		$(".input-row:eq(0) .grade-select option:eq('0')").prop('selected', true);
 		$(".input-table").find("tr:gt(1)").remove();
+		$(".input-row:eq(0)").removeClass("aisis-rows");
 		aisisRowTotal = 0;
 		qpi = "-";
 		targetQpi = "-";
@@ -104,10 +108,12 @@ $(document).ready(function() {
 		
 		for (i=0; i<course_codes.length; i++) {
 			currRow = rowTotal + i;
-			$(".input-table").append("<tr class='input-row aisis-rows'>" + $(".input-row").html() + "</tr>");
-			$(".input-row:eq(" + currRow + ") .course-code").val(course_codes[i]);
-			$(".input-row:eq(" + currRow + ") .unit-select").val(course_units[i]);
-			$(".input-row:eq(" + currRow + ") .grade-select option:eq(" + grade_index[i] + ")").prop('selected', true);
+			if(grade_index[i] != 0) {
+				$(".input-table").append("<tr class='input-row aisis-rows'>" + $(".input-row").html() + "</tr>");
+				$(".input-row:eq(" + currRow + ") .course-code").val(course_codes[i]);
+				$(".input-row:eq(" + currRow + ") .unit-select").val(course_units[i]);
+				$(".input-row:eq(" + currRow + ") .grade-select option:eq(" + grade_index[i] + ")").prop('selected', true);
+			}
 		}
 		if(emptyTable && initialRowTotal == 1)
 			$(".input-row:eq(0)").remove();
