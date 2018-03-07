@@ -82,7 +82,9 @@ $(document).ready(function() {
 		for (i=0; i<summSplit.length; i++) {
 			if (i%7==3) { 
 				currCourseCode = summSplit[i];
-				ifUncredited = currCourseCode.startsWith("INTAC") || currCourseCode.startsWith("PE") || currCourseCode.startsWith("NSTP");
+				ifUncredited = currCourseCode.startsWith("PE") || summSplit[i+2].startsWith("0")
+				|| ((summSplit[i+3]!="A") && (summSplit[i+3]!="B+") && (summSplit[i+3]!="B") &&
+				summSplit[i+3]!="C+" && summSplit[i+3]!="C" && summSplit[i+3]!="D");
 				if(ifUncredited)
 					continue;
 				else
