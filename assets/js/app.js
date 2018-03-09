@@ -82,9 +82,11 @@ $(document).ready(function() {
 		for (i=0; i<summSplit.length; i++) {
 			if (i%7==3) { 
 				currCourseCode = summSplit[i];
-				ifUncredited = currCourseCode.startsWith("PE") || summSplit[i+2].startsWith("0")
-				|| ((summSplit[i+3]!="A") && (summSplit[i+3]!="B+") && (summSplit[i+3]!="B") &&
-				summSplit[i+3]!="C+" && summSplit[i+3]!="C" && summSplit[i+3]!="D");
+				countedGrade = (summSplit[i+3] =="A") || (summSplit[i+3]=="B+") || (summSplit[i+3]=="B") 
+				|| summSplit[i+3]== "C+" || summSplit[i+3]== "C" || summSplit[i+3] == "D" || 
+				summSplit[i+3] == "F" || summSplit[i+3] == "W";
+				ifUncredited = currCourseCode.startsWith("PE") || currCourseCode.startsWith("NSTP") 
+				|| summSplit[i+2].startsWith("0") || !countedGrade;
 				if(ifUncredited)
 					continue;
 				else
@@ -100,6 +102,8 @@ $(document).ready(function() {
 				else if (summSplit[i]=="C+") grade_index.push(4);
 				else if (summSplit[i]=="C") grade_index.push(5);
 				else if (summSplit[i]=="D") grade_index.push(6);
+				else if (summSplit[i]=="F") grade_index.push(7);
+				else if (summSplit[i]=="W") grade_index.push(8);
 				else grade_index.push(0);
 			}
 		}
