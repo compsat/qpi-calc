@@ -21,20 +21,26 @@ $(document).ready(function() {
 	});
 	
 	$(".modal-fill-btn").on("click", function() {
-		iniAisisRowTotal = $(".input-row.aisis-rows").length;
-		$(".input-table > tbody > tr").eq(0).after("<tr class='input-row'>" + $(".input-row").html() + "</tr>");
-		for(i = 0; i < iniAisisRowTotal; i++)
-			$(".input-row.aisis-rows:eq(0)").remove();
-		iniRowTotal = $(".input-row").length;
-		addSemClasses();
-		for(i=0; i < iniRowTotal; i++) {
-			if($(".input-row:eq(" + i + ") .grade-select option:eq('0')").is(':selected')
-			&& $(".input-row:eq(" + i + ") .course-code").val() == "") {
-				$(".input-row:eq(" + i + ")").remove();
-				i--;
-			}
+		summSplit = $(".txt-area").val().split(/\s\t|\t|\n/);
+		if(isNaN(summSplit[0].substring(0, 4)) || isNaN(summSplit[1])) {
+		
 		}
-		updateQPI();
+		else {
+			iniAisisRowTotal = $(".input-row.aisis-rows").length;
+			$(".input-table > tbody > tr").eq(0).after("<tr class='input-row'>" + $(".input-row").html() + "</tr>");
+			for(i = 0; i < iniAisisRowTotal; i++)
+				$(".input-row.aisis-rows:eq(0)").remove();
+			iniRowTotal = $(".input-row").length;
+			addSemClasses();
+			for(i=0; i < iniRowTotal; i++) {
+				if($(".input-row:eq(" + i + ") .grade-select option:eq('0')").is(':selected')
+				&& $(".input-row:eq(" + i + ") .course-code").val() == "") {
+					$(".input-row:eq(" + i + ")").remove();
+					i--;
+				}
+			}
+			updateQPI();
+		}
 	});
 	
 	$(".res-btn").on("click", function() {
@@ -82,7 +88,6 @@ $(document).ready(function() {
 	function addSemClasses() {
 		summary = $(".txt-area").val();
 		summSplit = summary.split(/\s\t|\t|\n/);
-		console.log(summSplit[1]);
 		course_codes = [];
 		course_units = [];
 		gradeValue = [];
@@ -91,61 +96,66 @@ $(document).ready(function() {
 		currCourseCode = "";
 		ifUncredited = false;
 		
-		for (i=0; i<summSplit.length; i++) {
-			if (i%7==3) { 
-				currCourseCode = summSplit[i];
-				countedGrade = (summSplit[i+3] =="A") || (summSplit[i+3]=="B+") || (summSplit[i+3]=="B") 
-				|| summSplit[i+3]== "C+" || summSplit[i+3]== "C" || summSplit[i+3] == "D" || 
-				summSplit[i+3] == "F" || summSplit[i+3] == "W" || summSplit[i+3].startsWith("CURRENTLY");
-				
-				ifUncredited = currCourseCode.startsWith("PE") || currCourseCode.startsWith("NSTP") 
-				|| summSplit[i+2].startsWith("0") || !countedGrade;
-				
-				if(ifUncredited)
-					continue;
-				else
-					course_codes.push(currCourseCode);
-			}
-			if (i%7==5 && !ifUncredited) {
-				course_units.push(summSplit[i]);
-				if (summSplit[i+1].startsWith("CURRENTLY")) 
-					currEnrolled.push(true);
-				else
-					currEnrolled.push(false);
-			}
-			if (i%7==6 && !ifUncredited) {
-				if (summSplit[i]=="A") grade_index.push(1);
-				else if (summSplit[i]=="B+") grade_index.push(2);
-				else if (summSplit[i]=="B") grade_index.push(3);
-				else if (summSplit[i]=="C+") grade_index.push(4);
-				else if (summSplit[i]=="C") grade_index.push(5);
-				else if (summSplit[i]=="D") grade_index.push(6);
-				else if (summSplit[i]=="F") grade_index.push(7);
-				else if (summSplit[i]=="W") grade_index.push(8);
-				else grade_index.push(0);
-			}
+		if(isNaN(summSplit[0].substring(0, 4)) || isNaN(summSplit[1])) {
+		
 		}
-		
-		rowTotal = $(".input-row").length;
-		initialRowTotal = rowTotal;
-		
-		for (i=0; i<course_codes.length; i++) {
-			currRow = rowTotal + i;
-			if(grade_index[i] != 0) {
-				$(".input-table").append("<tr class='input-row aisis-rows'>" + $(".input-row").html() + "</tr>");
-				$(".input-row:eq(" + currRow + ") .course-code").val(course_codes[i]);
-				$(".input-row:eq(" + currRow + ") .unit-select").val(course_units[i]);
-				$(".input-row:eq(" + currRow + ") .grade-select option:eq(" + grade_index[i] + ")").prop('selected', true);
-			}
-			if(currEnrolled[i]) {
-				aisisRowTotal = $(".input-row.aisis-rows").length;
-				rowTotal = $(".input-row").length;
-				currRow = rowTotal-aisisRowTotal;
-				$(".input-table > tbody > tr").eq(currRow).after("<tr class='input-row aisis-rows'>" + $(".input-row").html() + "</tr>");
-				$(".input-row:eq(" + currRow + ") .course-code").val(course_codes[i]);
-				$(".input-row:eq(" + currRow + ") .unit-select").val(course_units[i]);
-				$(".input-row:eq(" + currRow + ") .grade-select option:eq(" + grade_index[i] + ")").prop('selected', true);
+		else {
+			for (i=0; i<summSplit.length; i++) {
+				if (i%7==3) { 
+					currCourseCode = summSplit[i];
+					countedGrade = (summSplit[i+3] =="A") || (summSplit[i+3]=="B+") || (summSplit[i+3]=="B") 
+					|| summSplit[i+3]== "C+" || summSplit[i+3]== "C" || summSplit[i+3] == "D" || 
+					summSplit[i+3] == "F" || summSplit[i+3] == "W" || summSplit[i+3].startsWith("CURRENTLY");
+					
+					ifUncredited = currCourseCode.startsWith("PE") || currCourseCode.startsWith("NSTP") 
+					|| summSplit[i+2].startsWith("0") || !countedGrade;
 				
+					if(ifUncredited)
+						continue;
+					else
+						course_codes.push(currCourseCode);
+				}
+				if (i%7==5 && !ifUncredited) {
+					course_units.push(summSplit[i]);
+					if (summSplit[i+1].startsWith("CURRENTLY")) 
+						currEnrolled.push(true);
+					else
+						currEnrolled.push(false);
+				}
+				if (i%7==6 && !ifUncredited) {
+					if (summSplit[i]=="A") grade_index.push(1);
+					else if (summSplit[i]=="B+") grade_index.push(2);
+					else if (summSplit[i]=="B") grade_index.push(3);
+					else if (summSplit[i]=="C+") grade_index.push(4);
+					else if (summSplit[i]=="C") grade_index.push(5);
+					else if (summSplit[i]=="D") grade_index.push(6);
+					else if (summSplit[i]=="F") grade_index.push(7);
+					else if (summSplit[i]=="W") grade_index.push(8);
+					else grade_index.push(0);
+				}
+			}
+		
+			rowTotal = $(".input-row").length;
+			initialRowTotal = rowTotal;
+		
+			for (i=0; i<course_codes.length; i++) {
+				currRow = rowTotal + i;
+				if(grade_index[i] != 0) {
+					$(".input-table").append("<tr class='input-row aisis-rows'>" + $(".input-row").html() + "</tr>");
+					$(".input-row:eq(" + currRow + ") .course-code").val(course_codes[i]);
+					$(".input-row:eq(" + currRow + ") .unit-select").val(course_units[i]);
+					$(".input-row:eq(" + currRow + ") .grade-select option:eq(" + grade_index[i] + ")").prop('selected', true);
+				}
+				if(currEnrolled[i]) {
+					aisisRowTotal = $(".input-row.aisis-rows").length;
+					rowTotal = $(".input-row").length;
+					currRow = rowTotal-aisisRowTotal;
+					$(".input-table > tbody > tr").eq(currRow).after("<tr class='input-row aisis-rows'>" + $(".input-row").html() + "</tr>");
+					$(".input-row:eq(" + currRow + ") .course-code").val(course_codes[i]);
+					$(".input-row:eq(" + currRow + ") .unit-select").val(course_units[i]);
+					$(".input-row:eq(" + currRow + ") .grade-select option:eq(" + grade_index[i] + ")").prop('selected', true);
+				
+				}
 			}
 		}
 	}
