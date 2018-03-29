@@ -22,9 +22,18 @@ $(document).ready(function() {
 	
 	$(".modal-fill-btn").on("click", function() {
 		iniAisisRowTotal = $(".input-row.aisis-rows").length;
-		addSemClasses();
+		$(".input-table > tbody > tr").eq(0).after("<tr class='input-row'>" + $(".input-row").html() + "</tr>");
 		for(i = 0; i < iniAisisRowTotal; i++)
 			$(".input-row.aisis-rows:eq(0)").remove();
+		iniRowTotal = $(".input-row").length;
+		addSemClasses();
+		for(i=0; i < iniRowTotal; i++) {
+			if($(".input-row:eq(" + i + ") .grade-select option:eq('0')").is(':selected')
+			&& $(".input-row:eq(" + i + ") .course-code").val() == "") {
+				$(".input-row:eq(" + i + ")").remove();
+				i--;
+			}
+		}
 		updateQPI();
 	});
 	
@@ -34,6 +43,7 @@ $(document).ready(function() {
 		$(".input-row:eq(0) .grade-select option:eq('0')").prop('selected', true);
 		$(".input-table").find("tr:gt(1)").remove();
 		$(".input-row:eq(0)").removeClass("aisis-rows");
+		$(".txt-area").val("");
 		aisisRowTotal = 0;
 		qpi = "-";
 		targetQpi = "-";
@@ -72,10 +82,12 @@ $(document).ready(function() {
 	function addSemClasses() {
 		summary = $(".txt-area").val();
 		summSplit = summary.split(/\s\t|\t|\n/);
+		console.log(summSplit[1]);
 		course_codes = [];
 		course_units = [];
 		gradeValue = [];
 		grade_index = [];
+		currEnrolled = [];
 		currCourseCode = "";
 		ifUncredited = false;
 		
@@ -84,9 +96,11 @@ $(document).ready(function() {
 				currCourseCode = summSplit[i];
 				countedGrade = (summSplit[i+3] =="A") || (summSplit[i+3]=="B+") || (summSplit[i+3]=="B") 
 				|| summSplit[i+3]== "C+" || summSplit[i+3]== "C" || summSplit[i+3] == "D" || 
-				summSplit[i+3] == "F" || summSplit[i+3] == "W";
+				summSplit[i+3] == "F" || summSplit[i+3] == "W" || summSplit[i+3].startsWith("CURRENTLY");
+				
 				ifUncredited = currCourseCode.startsWith("PE") || currCourseCode.startsWith("NSTP") 
 				|| summSplit[i+2].startsWith("0") || !countedGrade;
+				
 				if(ifUncredited)
 					continue;
 				else
@@ -94,6 +108,10 @@ $(document).ready(function() {
 			}
 			if (i%7==5 && !ifUncredited) {
 				course_units.push(summSplit[i]);
+				if (summSplit[i+1].startsWith("CURRENTLY")) 
+					currEnrolled.push(true);
+				else
+					currEnrolled.push(false);
 			}
 			if (i%7==6 && !ifUncredited) {
 				if (summSplit[i]=="A") grade_index.push(1);
@@ -110,7 +128,6 @@ $(document).ready(function() {
 		
 		rowTotal = $(".input-row").length;
 		initialRowTotal = rowTotal;
-		emptyTable = $(".input-row:eq(0) .grade-select option:eq('0')").is(':selected');
 		
 		for (i=0; i<course_codes.length; i++) {
 			currRow = rowTotal + i;
@@ -120,9 +137,17 @@ $(document).ready(function() {
 				$(".input-row:eq(" + currRow + ") .unit-select").val(course_units[i]);
 				$(".input-row:eq(" + currRow + ") .grade-select option:eq(" + grade_index[i] + ")").prop('selected', true);
 			}
+			if(currEnrolled[i]) {
+				aisisRowTotal = $(".input-row.aisis-rows").length;
+				rowTotal = $(".input-row").length;
+				currRow = rowTotal-aisisRowTotal;
+				$(".input-table > tbody > tr").eq(currRow).after("<tr class='input-row aisis-rows'>" + $(".input-row").html() + "</tr>");
+				$(".input-row:eq(" + currRow + ") .course-code").val(course_codes[i]);
+				$(".input-row:eq(" + currRow + ") .unit-select").val(course_units[i]);
+				$(".input-row:eq(" + currRow + ") .grade-select option:eq(" + grade_index[i] + ")").prop('selected', true);
+				
+			}
 		}
-		if(emptyTable && initialRowTotal == 1)
-			$(".input-row:eq(0)").remove();
 	}
 
 	function updateQPI() {
