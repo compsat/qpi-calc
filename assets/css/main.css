@@ -229,7 +229,12 @@ h1 {
 }
 
 .modal-dialog {
-	height: 600px;
+	height: auto;
+}
+
+.modal-error {
+	color: #ff0000;
+	font: 18pt "futura_ltcondensed";
 }
 
 .modal-content {
