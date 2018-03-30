@@ -50,14 +50,14 @@ header {
 	);
 }
 
-.desc-top {
+.desc-instructions {
 	width: 100%;
 	color: #383B37;
 	font: 25pt "futura_ltcondensed";
 	text-align: center;
 	text-transform: uppercase;
 	letter-spacing: 1pt;
-	margin: 0 auto;
+	margin: 15pt;
 }
 
 h1 {
@@ -86,8 +86,8 @@ h1 {
 
 .input-card-container {
 	width: 60%;
-	height: 100%;
-	padding: 20px 10px 20px 0;
+	height: auto;
+	padding: 20px 10px 0 0;
 }
 
 .output-card-container {
@@ -108,7 +108,7 @@ h1 {
 }
 
 .input-card {
-	height: 100%;
+	height: auto;
 }
 
 .output-card {
