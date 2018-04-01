@@ -23,13 +23,16 @@ $(document).ready(function() {
 	$(".modal-fill-btn").on("click", function() {
 		summSplit = $(".txt-area").val().split(/\s\t|\t|\n/);
 		if(isNaN(summSplit[0].substring(0, 4)) || isNaN(summSplit[1])) {
-		
+			$(".modal-error").css('visibility', 'visible');
+			$(".modal-fill-btn").removeAttr('data-dismiss');
 		}
 		else {
+			$(".modal-error").css('visibility', 'hidden');
+			$(".modal-fill-btn").attr('data-dismiss', 'modal')
 			iniAisisRowTotal = $(".input-row.aisis-rows").length;
 			$(".input-table > tbody > tr").eq(0).after("<tr class='input-row'>" + $(".input-row").html() + "</tr>");
 			for(i = 0; i < iniAisisRowTotal; i++)
-				$(".input-row.aisis-rows:eq(0)").remove();
+			$(".input-row.aisis-rows:eq(0)").remove();
 			iniRowTotal = $(".input-row").length;
 			addSemClasses();
 			for(i=0; i < iniRowTotal; i++) {
@@ -50,6 +53,7 @@ $(document).ready(function() {
 		$(".input-table").find("tr:gt(1)").remove();
 		$(".input-row:eq(0)").removeClass("aisis-rows");
 		$(".txt-area").val("");
+		$(".modal-error").css('visibility', 'hidden');
 		aisisRowTotal = 0;
 		qpi = "-";
 		targetQpi = "-";

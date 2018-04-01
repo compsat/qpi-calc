@@ -235,6 +235,7 @@ h1 {
 .modal-error {
 	color: #ff0000;
 	font: 18pt "futura_ltcondensed";
+	visibility: hidden;
 }
 
 .modal-content {
