@@ -22,7 +22,7 @@ $(document).ready(function() {
 	
 	$(".modal-fill-btn").on("click", function() {
 		summSplit = $(".txt-area").val().split(/\s\t|\t|\n/);
-		if(isNaN(summSplit[0].substring(0, 4)) || isNaN(summSplit[1])) {
+		if(!addSemClasses()) {
 			$(".modal-error").css('visibility', 'visible');
 			$(".modal-fill-btn").removeAttr('data-dismiss');
 		}
@@ -100,9 +100,8 @@ $(document).ready(function() {
 		currCourseCode = "";
 		ifUncredited = false;
 		
-		if(isNaN(summSplit[0].substring(0, 4)) || isNaN(summSplit[1])) {
-		
-		}
+		if(isNaN(summSplit[0].substring(0, 4)) || isNaN(summSplit[1])) 
+			return false;
 		else {
 			for (i=0; i<summSplit.length; i++) {
 				if (i%7==3) { 
@@ -125,6 +124,9 @@ $(document).ready(function() {
 						currEnrolled.push(true);
 					else
 						currEnrolled.push(false);
+						
+					if(isNaN(summSplit[i]))
+						return false;
 				}
 				if (i%7==6 && !ifUncredited) {
 					if (summSplit[i]=="A") grade_index.push(1);
@@ -161,6 +163,7 @@ $(document).ready(function() {
 				
 				}
 			}
+			return true;
 		}
 	}
 
