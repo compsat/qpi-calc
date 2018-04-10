@@ -315,11 +315,14 @@ h1 {
 	font: 67pt "futura_ltbold";
 }
 
+.target-end, .sem-units {
+	border: 1px solid;
+}
+
 .qpi-display2 {
 	width: 73%;
 	height: 80px;
 	margin-top: 20px;
-	border: none;
 	font: 50pt "futura_ltbold";
 }
 
