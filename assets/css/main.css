@@ -16,6 +16,11 @@
 
 }
 
+strong{
+	 font-weight: bold;
+}
+	
+
 html {
 	box-sizing: border-box;
 }
