@@ -63,7 +63,6 @@
 	<section id="qpi-page" class="page">
 		<div class="page-container">
 			<div class="input-card-container">
-				<div class="card input-card">
 				<div class="card input-card" data-step="2" data-intro="Here is where you'll be inputing your grades. You can now add a course code to stay organized! Try filling out your first subject!" >
 					<button class="addreset-btn add-btn" data-step="4" data-intro="You may add another subject by clicking here" data-position='left'>Add</button>
 					<button class="fill-btn" data-step="5" data-intro="You may also copy-paste your grades directly from AISIS. Subjects such as NSTP and PE will automatically be filtered out!" data-position='left' type="button" data-toggle="modal" data-target="#myModal">Fill</button>
@@ -103,9 +102,6 @@
 							<td class="delete-btn">x</td>
 						</tr>
 					</table>
-					<button class="addreset-btn add-btn">Add</button>
-					<button class="fill-btn" type="button" data-toggle="modal" data-target="#myModal">Fill</button>
-					<button class="addreset-btn res-btn">Reset</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" role="dialog">
@@ -115,7 +111,9 @@
 						  <div class="modal-content">
 							<div class="modal-header">
 							  <button type="button" class="close" data-dismiss="modal">&times;</button>
-							  <h4 class="modal-title">Auto Fill Up</h4><h5 class="modal-error">*Invalid input</h5>
+							  <h4 class="modal-title">Auto Fill Up</h4>
+							  <a  class ="modal-title" href="http://compsat.org/">Go to AISIS <i class="fas fa-sign-in-alt"></i></a>
+							  <h5 class="modal-error">*Invalid input</h5>
 							</div>
 							<div class="modal-body">
 								<textarea class="txt-area"></textarea>
