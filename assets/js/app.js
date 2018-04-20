@@ -14,7 +14,7 @@ $(document).ready(function() {
 		updateQPI();
 	});
 
-	$(".add-btn").on("click", function() {
+	$(".add-fcn").on("click", function() {
 		aisisRowTotal = $(".input-row.aisis-rows").length;
 		rowTotal = $(".input-row").length;
 		$(".input-table > tbody > tr").eq(rowTotal-aisisRowTotal).after("<tr class='input-row'>" + $(".input-row").html() + "</tr>");
