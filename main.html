@@ -45,6 +45,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:600italic,700,600,400' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="assets/css/main.css">
 	<link rel="stylesheet" href="assets/css/introjs.min.css">
+		<link rel="stylesheet" href="assets/css/introjs-modern.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="assets/js/app.js"></script>
@@ -56,17 +57,20 @@
 <body>
 	<header>
 		<a id="brandmark" href="http://compsat.org/"></a>
-		<h1 data-intro='Welcome to the new Cumulative QPI Calculator'>QPI Calculator</h1>
-		<button onclick="javascript:introJs().setOption('showProgress', true).start();">Get Started</button>
+		<h1 >QPI Calculator</h1>
+
+
 	</header>
 
 	<section id="qpi-page" class="page">
+
 		<div class="page-container">
 			<div class="input-card-container">
-				<div class="card input-card" data-step="2" data-intro="Here is where you'll be inputing your grades. You can now add a course code to stay organized! Try filling out your first subject!" >
-					<button class="addreset-btn add-btn" data-step="4" data-intro="You may add another subject by clicking here" data-position='left'>Add</button>
-					<button class="fill-btn" data-step="5" data-intro="You may also copy-paste your grades directly from AISIS. Subjects such as NSTP and PE will automatically be filtered out!" data-position='left' type="button" data-toggle="modal" data-target="#myModal">Fill</button>
-					<button class="addreset-btn res-btn" data-step="6" data-intro="You can also click this button to clear things out. Next, I will show you how our QPI calculator can show you what you need to get your goal QPI!" data-position='left' >Reset</button>
+				<div class="card input-card" id="step1" >
+						<button class="add-btn" id="step3"  href="javascript:void(0);" onclick="startIntro();">How To Use</button>
+					<button class="addreset-btn add-btn" id="step3" >Add</button>
+					<button class="fill-btn" id="step4"type="button" data-toggle="modal" data-target="#myModal">Fill</button>
+					<button class="addreset-btn res-btn" id="step5">Reset</button>
 					<table class="input-table">
 						<tr >
 							<th>Course Code</th>
@@ -163,27 +167,27 @@
 
 			</div>
 			<div class="output-card-container">
-				<div class="output-card"  data-step="3" data-intro="Your current QPI will automatically show here" data-position='left' >
+				<div class="output-card" id="step2" >
 					<span class="qpi-heading">Your QPI</span>
 					<span class="qpi-display">-</span>
 				</div>
 
 				<div class="output-card2">
-					<div   data-step="9" data-intro="Our QPI calculator analyzes your grades and gives you a target grade to achieve in order to reach your goal!" data-position='left' >
+					<div   id="step8" >
 					<span class="qpi-heading">Minimum Required QPI</span>
 					<span data-tooltip="Current semester's QPI should be at least this to achieve my target cumulative QPI"><i class="fas fa-question-circle"></i></span></br>
 					<span class="qpi-display2 target-qpi">2.5</span>
 					</div>
-					
-					
+
+
 					<br><br>
-					<div data-step="7" data-intro="Specify here the cumulative QPI you want to get at the end of the semester or year" data-position='left' >
+					<div id="step6" >
 					<span class="qpi-heading">Desired Cumulative QPI</span>
 					<span data-tooltip="Cumulative QPI I want to achieve by the end of this semester"><i class="fas fa-question-circle"></i></span></br>
 					<input class="qpi-display2 target-end" value="2.5">
 					</div>
 					<br><br>
-					<div   data-step="8" data-intro="Indicate the number of units left to take for the semester or year" data-position='left'>
+					<div    id="step7">
 					<span class="qpi-heading" >Units Left to Take</span>
 					<span data-tooltip="Number of units being taken for the current semester"><i class="fas fa-question-circle"></i></span></br>
 					<input class="qpi-display2 sem-units" value="18"></input>
@@ -195,6 +199,88 @@
 			</div>
 		</div>
 	</section>
+
+	<script type="text/javascript">
+		function startIntro(){
+			var intro = introJs();
+			intro.setOption('showStepNumbers', false);
+			intro.setOption('showBullets', false);
+				intro.setOption('showProgress', true);
+				intro.setOptions({
+					steps: [
+						{
+							intro: "Welcome to the new Cumulative QPI Calculator. Let's have a tour of what you can do with our calculator!"
+						},
+						{
+							element: document.querySelector('#step1'),
+							intro: "Here is where you'll be inputing your grades. You can now add a course code to stay organized!",
+							position: 'bottom'
+						},
+						{
+							element: document.querySelectorAll('#step2')[0],
+							intro: "Your current QPI will automatically show here",
+							position: 'left'
+						},
+						{
+							element: document.querySelectorAll('#step3')[0],
+							intro: "You may add another subject by clicking here",
+							position: 'left'
+						},
+						{
+							element: document.querySelectorAll('#step4')[0],
+							intro: "You may also copy-paste your grades directly from AISIS.",
+							position: 'left'
+						},
+						{
+							element: document.querySelectorAll('#step5')[0],
+							intro: "You can also click this button to clear things out.",
+							position: 'left'
+						},
+						{
+							intro: "Our QPI Calculator can now help you figure out what grades you need to reach a certain goal or minimum requirement"
+						},
+						{
+							intro: "First, our calculator needs to know your current standing and the number of units you've taken."
+						},
+						{
+							intro: "Go to your AISIS account and head to MY GRADES. Select the ALL GRADES view and copy the entire table"
+						},
+						{
+							element: document.querySelectorAll('#step4')[0],
+							intro: "Then click the FILL button and paste your grades in the text area",
+							position: 'left'
+						},
+						{
+							intro: "Your grades should then be automatically added below."
+						},
+						{
+							element: document.querySelectorAll('#step6')[0],
+							intro: "Specify here the cumulative QPI you want to get at the end of the semester or year",
+							position: 'left'
+						},
+						{
+							element: document.querySelectorAll('#step7')[0],
+							intro: "Next, indicate the number of units left to take for the semester or year",
+							position: 'left'
+						},
+						{
+							element: document.querySelectorAll('#step8')[0],
+							intro:  "Our QPI calculator analyzes your grades and gives you a target grade to achieve in order to reach your goal!",
+							position: 'left'
+						},
+						{
+							intro: 'You are now ready to use the QPI Calculator!'
+						}
+					]
+				});
+
+				intro.start();
+		}
+	</script>
+
+
+
+
 </body>
 
 </html>
