@@ -60,6 +60,8 @@
 		<h1 >QPI Calculator</h1>
 
 
+
+
 	</header>
 
 	<section id="qpi-page" class="page">
@@ -166,33 +168,50 @@
 					</div>
 
 			</div>
+
+
+
+
+
 			<div class="output-card-container">
 				<div class="output-card" id="step2" >
 					<span class="qpi-heading">Your QPI</span>
 					<span class="qpi-display">-</span>
 				</div>
 
-				<div class="output-card2">
-					<div   id="step8" >
-					<span class="qpi-heading">Minimum Required QPI</span>
-					<span data-tooltip="Current semester's QPI should be at least this to achieve my target cumulative QPI"><i class="fas fa-question-circle"></i></span></br>
-					<span class="qpi-display2 target-qpi">2.5</span>
-					</div>
+				<div class="wrap-collabsible">
+			  <input id="collapsible" class="toggle" type="checkbox">
+			  <label for="collapsible" class="lbl-toggle">Advanced</label>
+			  <div class="collapsible-content">
+			    <div class="content-inner">
+
+						<div class="output-card2">
+							<div   id="step8" >
+							<span class="qpi-heading">Minimum Required QPI</span>
+							<span data-tooltip="Current semester's QPI should be at least this to achieve my target cumulative QPI"><i class="fas fa-question-circle"></i></span></br>
+							<span class="qpi-display2 target-qpi">2.5</span>
+							</div>
 
 
-					<br><br>
-					<div id="step6" >
-					<span class="qpi-heading">Desired Cumulative QPI</span>
-					<span data-tooltip="Cumulative QPI I want to achieve by the end of this semester"><i class="fas fa-question-circle"></i></span></br>
-					<input class="qpi-display2 target-end" value="2.5">
-					</div>
-					<br><br>
-					<div    id="step7">
-					<span class="qpi-heading" >Units Left to Take</span>
-					<span data-tooltip="Number of units being taken for the current semester"><i class="fas fa-question-circle"></i></span></br>
-					<input class="qpi-display2 sem-units" value="18"></input>
-					</div>
+							<br><br>
+							<div id="step6" >
+							<span class="qpi-heading">Desired Cumulative QPI</span>
+							<span data-tooltip="Cumulative QPI I want to achieve by the end of this semester"><i class="fas fa-question-circle"></i></span></br>
+							<input class="qpi-display2 target-end" value="2.5">
+							</div>
+							<br><br>
+							<div    id="step7">
+							<span class="qpi-heading" >Units Left to Take</span>
+							<span data-tooltip="Number of units being taken for the current semester"><i class="fas fa-question-circle"></i></span></br>
+							<input class="qpi-display2 sem-units" value="18"></input>
+							</div>
+						</div>
+
+			    </div>
+			  </div>
 				</div>
+
+
 
 				<small>Designed and developed by <a href="http://galacemiguel.github.io/">Miguel N. Galace</a>, <a href="https://github.com/daniddelrio">Daniel Del Rio</a>, <a href="https://github.com/dancerwinter">Anne Manzano</a>, and <a href="https://github.com/a-penguin-mage">Chino Nava</a>.
 				</small>
