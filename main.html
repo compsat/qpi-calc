@@ -69,10 +69,12 @@
 		<div class="page-container">
 			<div class="input-card-container">
 				<div class="card input-card" id="step1" >
-						<button class="add-btn" id="step3"  href="javascript:void(0);" onclick="startIntro();">How To Use</button>
-					<button class="add-btn add-fcn" id="step3" >Add</button>
-					<button class="fill-btn" id="step4"type="button" data-toggle="modal" data-target="#myModal">Fill</button>
-					<button class="res-btn" id="step5">Reset</button>
+
+					<div class="add-fill-reset">
+						<button class="add-btn add-fcn" id="step3" > <i class="fas fa-plus"></i> Add</button>
+						<button class="fill-btn" id="step4"type="button" data-toggle="modal" data-target="#myModal"><i class="fas fa-paste"></i> Fill</button>
+						<button class="res-btn" id="step5"><i class="fas fa-redo-alt"></i> Reset</button>
+					</div>
 					<table class="input-table">
 						<tr >
 							<th>Course Code</th>
@@ -179,14 +181,17 @@
 					<span class="qpi-display">-</span>
 				</div>
 
-				<div class="wrap-collabsible">
+				<div class="wrap-collabsible" >
 			  <input id="collapsible" class="toggle" type="checkbox">
-			  <label for="collapsible" class="lbl-toggle">Advanced</label>
+			  <label for="collapsible" class="lbl-toggle">Cumulative QPI Calculator</label>
 			  <div class="collapsible-content">
 			    <div class="content-inner">
 
+
+
 						<div class="output-card2">
-							<div   id="step8" >
+							<button class="intro-btn" >How To Use?</button>
+							<div id="step8" >
 							<span class="qpi-heading">Minimum Required QPI</span>
 							<span data-tooltip="Current semester's QPI should be at least this to achieve my target cumulative QPI"><i class="fas fa-question-circle"></i></span></br>
 							<span class="qpi-display2 target-qpi">2.5</span>
@@ -229,31 +234,6 @@
 					steps: [
 						{
 							intro: "Welcome to the new Cumulative QPI Calculator. Let's have a tour of what you can do with our calculator!"
-						},
-						{
-							element: document.querySelector('#step1'),
-							intro: "Here is where you'll be inputing your grades. You can now add a course code to stay organized!",
-							position: 'bottom'
-						},
-						{
-							element: document.querySelectorAll('#step2')[0],
-							intro: "Your current QPI will automatically show here",
-							position: 'left'
-						},
-						{
-							element: document.querySelectorAll('#step3')[0],
-							intro: "You may add another subject by clicking here",
-							position: 'left'
-						},
-						{
-							element: document.querySelectorAll('#step4')[0],
-							intro: "You may also copy-paste your grades directly from AISIS.",
-							position: 'left'
-						},
-						{
-							element: document.querySelectorAll('#step5')[0],
-							intro: "You can also click this button to clear things out.",
-							position: 'left'
 						},
 						{
 							intro: "Our QPI Calculator can now help you figure out what grades you need to reach a certain goal or minimum requirement"
