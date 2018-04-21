@@ -130,7 +130,7 @@ h1 {
 .output-card2 {
 	height: 600px;
 	background: #FFF;
-	padding: 30px 40px 70px 50px;
+	padding: 30px 40px 100px 50px;
 	margin-bottom:15px;
 	border-radius: 2px;
 	resize:true;
@@ -179,6 +179,9 @@ h1 {
 	text-transform: uppercase;
 	font: 400 15pt "Open Sans";
 	width: 110px;
+	outline-color:#fff;
+	outline-style:inset;
+	outline-width: 1px;
 }
 
 .fill-btn {
@@ -194,6 +197,9 @@ h1 {
 	letter-spacing: 1pt;
 	cursor: pointer;
 }
+.fill-btn:hover {
+	background: #2A2C29;
+}
 
 .res-btn {
 	width: 100px;
@@ -207,12 +213,16 @@ h1 {
 	letter-spacing: 1pt;
 	cursor: pointer;
 }
+.res-btn:hover {
+	background: #2A2C29;
+}
 
 .delete-btn {
 	padding: 0 5px;
 	font: 700 12pt "Open Sans";
 	visibility: hidden;
 }
+
 
 .add-btn {
 	width: 100px;
@@ -235,13 +245,14 @@ h1 {
 
 
 .intro-btn {
-	width: 150px;
+	display: block;
+	width: 50%;
+	margin: 0 auto;
 	height: 50px;
-	margin-bottom: 10px;
-	margin-right: 5px;
+	margin-bottom: 1em;
 	border: none;
 	border-radius: 2px;
-	background: #888;
+	background: #383B37;
 	color: #fff;
 	font: 600 12pt "Open Sans";
 	text-transform: uppercase;
@@ -249,12 +260,13 @@ h1 {
 	cursor: pointer;
 }
 
-.add-btn:hover {
+.intro-btn:hover {
 	background: #2A2C29;
 }
 
 .modal-dialog {
 	height: auto;
+	font: 600 12pt "Open Sans";
 }
 
 .modal-error {
@@ -285,6 +297,13 @@ h1 {
 	text-align: left;
 	letter-spacing: 1pt;
 }
+
+.go-to-aisis{
+	display: block;
+	float: right;
+}
+
+
 
 .modal-footer {
 	text-align: center;
@@ -341,7 +360,9 @@ h1 {
 }
 
 .target-end, .sem-units {
-	border: 1px solid;
+	outline-color:#fff;
+	outline-style:inset;
+
 }
 
 .qpi-display2 {
@@ -434,6 +455,8 @@ h1 {
 
 	.course-code {
 		width: 80px;
+
+
 	}
 }
 
@@ -463,8 +486,9 @@ h1 {
 	}
 
 	.add-btn, .fill-btn, .res-btn {
-		width: 85px;
+		width: 70px;
 		height: 40px;
+		font-size: 12px;
 	}
 
 	.qpi-heading {
@@ -484,6 +508,7 @@ h1 {
 
 .wrap-collabsible {
   margin-bottom: 1.2rem 0;
+
 }
 
 input[type='checkbox'] {
@@ -492,10 +517,9 @@ input[type='checkbox'] {
 
 .lbl-toggle {
   display: block;
-
+	font: 400 15pt "Open Sans";
   font-weight: bold;
-  font-family: monospace;
-  font-size: 1.8rem;
+  font-size: 1.4 	rem;
   text-transform: uppercase;
   text-align: center;
 
@@ -508,6 +532,7 @@ input[type='checkbox'] {
 
   border-radius: 7px;
   transition: all 0.25s ease-out;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .25);
 }
 
 .lbl-toggle:hover {
@@ -517,7 +542,6 @@ input[type='checkbox'] {
 .lbl-toggle::before {
   content: ' ';
   display: inline-block;
-
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 5px solid currentColor;
@@ -535,7 +559,8 @@ input[type='checkbox'] {
 .collapsible-content {
   max-height: 0px;
   overflow: hidden;
-  transition: max-height .25s ease-in-out;
+  transition: max-height 0.7s ease;
+
 }
 
 .toggle:checked + .lbl-toggle + .collapsible-content {
@@ -551,4 +576,5 @@ input[type='checkbox'] {
   border-bottom: 1px solid rgba(250, 224, 66, .45);
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
+
 }

@@ -120,7 +120,8 @@
 							<div class="modal-header">
 							  <button type="button" class="close" data-dismiss="modal">&times;</button>
 							  <h4 class="modal-title">Auto Fill Up</h4>
-							  <a  class ="modal-title" href="http://aisis.ateneo.edu" target="_blank">Go to AISIS <i class="fas fa-sign-in-alt"></i></a>
+								<p>Go to your AISIS account and head to MY GRADES. Select the ALL GRADES view and copy the entire table</p>
+							  <a  class ="modal-title go-to-aisis" href="http://aisis.ateneo.edu" target="_blank">Go to AISIS <i class="fas fa-sign-in-alt"></i></a>
 							  <h5 class="modal-error">*Invalid input</h5>
 							</div>
 							<div class="modal-body">
@@ -190,24 +191,20 @@
 
 
 						<div class="output-card2">
-							<button class="intro-btn" href="javascript:void(0);" onclick="startIntro();">How To Use?</button>
+							<button class="intro-btn" href="javascript:void(0);" onclick="startIntro();">How To Use</button>
 							<div id="step8" >
-							<span class="qpi-heading">Minimum Required QPI</span>
-							<span data-tooltip="Current semester's QPI should be at least this to achieve my target cumulative QPI"><i class="fas fa-question-circle"></i></span></br>
+
+							<span data-tooltip="Current semester's QPI should be at least this to achieve my target cumulative QPI"><span class="qpi-heading">Minimum Required QPI</span></span>
 							<span class="qpi-display2 target-qpi">2.5</span>
 							</div>
 
-
-							<br><br>
 							<div id="step6" >
-							<span class="qpi-heading">Desired Cumulative QPI</span>
-							<span data-tooltip="Cumulative QPI I want to achieve by the end of this semester"><i class="fas fa-question-circle"></i></span></br>
+							<span data-tooltip="Cumulative QPI I want to achieve by the end of this semester"><span class="qpi-heading">Desired Cumulative QPI</span></span>
 							<input class="qpi-display2 target-end" value="2.5">
 							</div>
 							<br><br>
 							<div    id="step7">
-							<span class="qpi-heading" >Units Left to Take</span>
-							<span data-tooltip="Number of units being taken for the current semester"><i class="fas fa-question-circle"></i></span></br>
+							<span data-tooltip="Number of units being taken for the current semester"><span class="qpi-heading" >Units Left to Take</span></span>
 							<input class="qpi-display2 sem-units" value="18"></input>
 							</div>
 						</div>
@@ -242,12 +239,8 @@
 							intro: "First, our calculator needs to know your current standing and the number of units you've taken."
 						},
 						{
-							intro: "Go to your AISIS account and head to MY GRADES. Select the ALL GRADES view and copy the entire table"
-						},
-						{
 							element: document.querySelectorAll('#step4')[0],
-							intro: "Then click the FILL button and paste your grades in the text area",
-							position: 'left'
+							intro: "We can use the FILL button to input all our info from AISIS"
 						},
 						{
 							intro: "Your grades should then be automatically added below."
