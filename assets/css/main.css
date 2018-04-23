@@ -32,13 +32,12 @@ html {
 body {
 	min-width: 320px;
 	background: #F3F3F3;
-	margin-bottom: 400px;
 }
 
 header {
 	position: relative;
 	width: 100%;
-	padding: 30px 150px 30px;
+	padding: 100px 150px 30px;
 	box-shadow: 0 0 10px rgba(0, 0, 0, .5);
 	background: #383B37;
 }
@@ -92,7 +91,7 @@ h1 {
 .input-card-container {
 	width: 60%;
 	height: auto;
-	padding: 20px 10px 0 0;
+	padding: 20px 10px 20px 0;
 }
 
 .output-card-container {
@@ -131,7 +130,6 @@ h1 {
 	height: 600px;
 	background: #FFF;
 	padding: 30px 40px 100px 50px;
-	margin-bottom:15px;
 	border-radius: 2px;
 	resize:true;
 	border-top: 8px solid #383B37;
@@ -141,6 +139,10 @@ h1 {
 
 .output-card2:click; {
 	border: none;
+}
+
+.by-text {
+	margin-bottom: 20px;
 }
 
 .input-table th {
@@ -179,9 +181,8 @@ h1 {
 	text-transform: uppercase;
 	font: 400 15pt "Open Sans";
 	width: 110px;
-	outline-color:#fff;
-	outline-style:inset;
-	outline-width: 1px;
+	border: none;
+	border-bottom: 1px solid rgba(56, 59, 55, .25);
 }
 
 .fill-btn {
@@ -359,12 +360,6 @@ h1 {
 	font: 67pt "futura_ltbold";
 }
 
-.target-end, .sem-units {
-	outline-color:#fff;
-	outline-style:inset;
-
-}
-
 .qpi-display2 {
 	width: 73%;
 	height: 80px;
@@ -374,6 +369,11 @@ h1 {
 
 .qpi-display2:active {
 	border: none;
+}
+
+.qpi-display2-input {
+	border: none;
+	border-bottom: 1px solid rgba(56, 59, 55, .25);
 }
 
 .output-card-container small {
