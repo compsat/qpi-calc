@@ -77,12 +77,12 @@
 					</div>
 					<table class="input-table">
 						<tr >
-							<th>Course Code</th>
+							<th class="course-code-col">Course Code</th>
 							<th>Letter Mark</th>
 							<th>No. of Units</th>
 						</tr>
 						<tr class="input-row">
-							<td>
+							<td class="course-code-col">
 								<input class="course-code"></input>
 							</td>
 							<td>
@@ -183,43 +183,35 @@
 					<span class="qpi-display">-</span>
 				</div>
 
-				<div class="wrap-collabsible" >
-			  <input id="collapsible" class="toggle" type="checkbox">
-			  <label for="collapsible" class="lbl-toggle">Cumulative QPI Calculator</label>
-			  <div class="collapsible-content">
-			    <div class="content-inner">
-
-
-
-						<div class="output-card2">
-							<button class="intro-btn" href="javascript:void(0);" onclick="startIntro();"><i class="fas fa-question-circle"></i> How To Use</button>
-							<div id="step8" >
-
-							<span data-tooltip="Current semester's QPI should be at least this to achieve my target cumulative QPI"><span class="qpi-heading">Minimum Required QPI</span></span>
-							<span class="qpi-display2 target-qpi">2.5</span>
+			<div class="wrap-collapsible">
+				<input id="collapsible" class="toggle" type="checkbox">
+				<label for="collapsible" class="lbl-toggle">Cumulative QPI Calculator</label>
+				<div class="collapsible-content">
+					<div class="content-inner">
+							<div class="output-card2">
+								<button class="intro-btn" href="javascript:void(0);" onclick="startIntro();"><i class="fas fa-question-circle"></i> How To Use</button>
+								<div id="step8" class="output-card2-display-block" >
+									<span class="qpi-heading">Minimum Required QPI</span>
+									<span class="qpi-display2 target-qpi">2.5</span>
+								</div>
+								<div id="step6" class="output-card2-display-block" >
+									<span class="qpi-heading">Desired Cumulative QPI</span>
+									<input class="target-end qpi-display2 qpi-display2-input" value="2.5">
+								</div>
+								<div id="step7" class="output-card2-display-block">
+									<span class="qpi-heading" >Units Left to Take</span>
+									<input class="sem-units qpi-display2 qpi-display2-input" value="18"></input>
+								</div>
 							</div>
-
-							<div id="step6" >
-							<span data-tooltip="Cumulative QPI I want to achieve by the end of this semester"><span class="qpi-heading">Desired Cumulative QPI</span></span>
-							<input class="qpi-display2 qpi-display2-input" value="2.5">
-							</div>
-							<br><br>
-							<div    id="step7">
-							<span data-tooltip="Number of units being taken for the current semester"><span class="qpi-heading" >Units Left to Take</span></span>
-							<input class="qpi-display2 qpi-display2-input" value="18"></input>
-							</div>
-						</div>
-
+					    </div>
+				    </div>
 			    </div>
-			  </div>
-				</div>
 
 
 
 				<small class="by-text">Designed and developed by the <a href="http://compsat.org">Computer Society of the Ateneo</a>.
 				</small>
 			</div>
-		</div>
 	</section>
 
 	<script type="text/javascript">
@@ -231,38 +223,41 @@
 				intro.setOptions({
 					steps: [
 						{
-							intro: "Welcome to the new Cumulative QPI Calculator. Let's have a tour of what you can do with our calculator!"
+							intro: "Welcome to the new CompSAt Cumulative QPI Calculator! Let's take a tour on how to get started."
 						},
 						{
-							intro: "Our QPI Calculator can now help you figure out what grades you need to reach a certain goal or minimum requirement"
+							intro: "We can now help you figure out what QPI you need to meet your target QPI."
 						},
 						{
-							intro: "First, our calculator needs to know your current standing and the number of units you've taken."
+							intro: "First, we'll need to know your current standing. Open up the MY GRADES page on AISIS and select ALL GRADES, then click on DISPLAY GRADES."
+						},
+						{
+							intro: "From there, highlight and copy all your grades from the first row down, beginning after the table headers."
 						},
 						{
 							element: document.querySelectorAll('#step4')[0],
-							intro: "We can use the FILL button to input all our info from AISIS"
+							intro: "Then, paste them into the site after clicking on this button."
 						},
 						{
 							intro: "Your grades should then be automatically added below."
 						},
 						{
 							element: document.querySelectorAll('#step6')[0],
-							intro: "Specify here the cumulative QPI you want to get at the end of the semester or year",
+							intro: "Next, indicate here your target QPI for the end of the semester (or for the year or even until you graduate!).",
 							position: 'left'
 						},
 						{
 							element: document.querySelectorAll('#step7')[0],
-							intro: "Next, indicate the number of units left to take for the semester or year",
+							intro: "Then, indicate here the number of units you're taking for that period.",
 							position: 'left'
 						},
 						{
 							element: document.querySelectorAll('#step8')[0],
-							intro:  "Our QPI calculator analyzes your grades and gives you a target grade to achieve in order to reach your goal!",
+							intro:  "Our QPI calculator will then analyze your grades and give you the minimum QPI you'll need to reach your goal!",
 							position: 'left'
 						},
 						{
-							intro: 'You are now ready to use the QPI Calculator!'
+							intro: "You're all set! We know you can make the grade! <br> Love, CompSAt ❤"
 						}
 					]
 				});

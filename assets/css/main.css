@@ -129,11 +129,9 @@ h1 {
 .output-card2 {
 	height: 600px;
 	background: #FFF;
-	padding: 30px 40px 100px 50px;
-	border-radius: 2px;
+	padding: 30px 40px 100px;
+	border-radius: 0 0 2px 2px;
 	resize:true;
-	border-top: 8px solid #383B37;
-	box-shadow: 0 0 5px rgba(0, 0, 0, .25);
 	color: #383B37;
 }
 
@@ -247,10 +245,10 @@ h1 {
 
 .intro-btn {
 	display: block;
-	width: 50%;
-	margin: 0 auto;
+	width: 40%;
+	min-width: 180px;
 	height: 50px;
-	margin-bottom: 1em;
+	margin-bottom: 2em;
 	border: none;
 	border-radius: 2px;
 	background: #383B37;
@@ -263,6 +261,10 @@ h1 {
 
 .intro-btn:hover {
 	background: #2A2C29;
+}
+
+.output-card2-display-block {
+	margin-bottom: 1rem;
 }
 
 .modal-dialog {
@@ -441,6 +443,10 @@ h1 {
 		padding-right: 25px;
 	}
 
+	.course-code-col {
+		display: none;
+	}
+
 	.card {
 		padding: 50px;
 	}
@@ -506,9 +512,10 @@ h1 {
 
 
 
-.wrap-collabsible {
-  margin-bottom: 1.2rem 0;
-
+.wrap-collapsible {
+	margin-bottom: 1.2rem 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, .25);
+	border-radius: 2px;
 }
 
 input[type='checkbox'] {
@@ -530,7 +537,7 @@ input[type='checkbox'] {
 
   cursor: pointer;
 
-  border-radius: 7px;
+  border-radius: 2px;
   transition: all 0.25s ease-out;
 	box-shadow: 0 0 5px rgba(0, 0, 0, .25);
 }
