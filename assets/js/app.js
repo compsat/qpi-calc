@@ -198,20 +198,25 @@ $(document).ready(function() {
 		}
 
 		if (isNaN(qpi)) {
-			qpi = (gradeTotal/unitTotal).toFixed(2);
+			qpi = toFixed(gradeTotal/unitTotal, 2);
+			console.log(qpi);
 			setQPI(qpi);
 		} else {
-			qpi = (gradeTotal/unitTotal).toFixed(2);
+			qpi = toFixed(gradeTotal/unitTotal, 2);
 			animateQPI(Math.abs(qpi - parseFloat($(".qpi-display").text()))/20);
 		}
 		
 		if (isNaN(targetQpi)) {
-			targetQpi = Number((target*(unitTotal+Number(semUnits))-gradeTotal)/Number(semUnits)).toFixed(2);
+			targetQpi = toFixed(Number((target*(unitTotal+Number(semUnits))-gradeTotal)/Number(semUnits)), 2);
 			setTargetQPI(targetQpi);
 		} else {
-			targetQpi = Number((target*(unitTotal+Number(semUnits))-gradeTotal)/Number(semUnits)).toFixed(2);
+			targetQpi = toFixed(Number((target*(unitTotal+Number(semUnits))-gradeTotal)/Number(semUnits)), 2);
 			animateTargetQPI(Math.abs(targetQpi - parseFloat($(".target-qpi").text()))/20);
 		}
+	}
+	
+	function toFixed(num, precision) {
+    	return (+(Math.round(+(num + 'e' + precision)) + 'e' + -precision)).toFixed(precision);
 	}
 
 	var animateQPI = function(step) {
@@ -281,7 +286,7 @@ $(document).ready(function() {
 			targetQpi = "-";
 		}
 		else {
-			$(".target-qpi").text(Number(qpi).toFixed(2));
+			$(".target-qpi").text(toFixed(Number(qpi), 2));
 			$(".target-qpi").css("font-size", "50pt");
 			$(".target-qpi").css("color", "#383B37");
 		}
