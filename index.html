@@ -1,53 +1,90 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="Want to compute your QPI without waiting for AISIS to do so? Too lazy to use a spreadsheet program? Then try the new QPI Calculator from CompSAt’s RnD department!">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-46284584-12"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+  		gtag('js', new Date());
+
+  		gtag('config', 'UA-46284584-12');
+
+	</script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:image" content="http://qpi.compsat.org/qpi-promo.png">
+	<meta property="og:description" content="Want to compute your QPI without waiting for AISIS to do so? Too lazy to use a spreadsheet program? Then try the QPI Calculator from CompSAt’s RnD department!">
+
+	<link rel="apple-touch-icon" sizes="57x57" href="assets/images/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="assets/images/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/images/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="assets/images/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="assets/images/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="assets/images/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="assets/images/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
 	<link rel="manifest" href="manifest.json">
 	<meta name="msapplication-TileColor" content="#FFFFFF">
-	<meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+	<meta name="msapplication-TileImage" content="assets/images/ms-icon-144x144.png">
 	<meta name="theme-color" content="#383B37">
 
 	<title>CompSAt QPI Calculator</title>
 	<link rel="stylesheet" href="assets/css/reset.css">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:600italic,700,600,400' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/introjs.min.css">
+		<link rel="stylesheet" href="assets/css/introjs-modern.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="assets/js/app.js"></script>
+	<script src="assets/js/fontawesome-all.js"></script>
+	<script src="assets/js/intro.min.js"></script>
+
 </head>
 
 <body>
 	<header>
 		<a id="brandmark" href="http://compsat.org/"></a>
-		<h1>QPI Calculator</h1>
+		<h1 >QPI Calculator</h1>
+
+
+
+
 	</header>
 
 	<section id="qpi-page" class="page">
+
 		<div class="page-container">
 			<div class="input-card-container">
-				<div class="card input-card">
+				<div class="card input-card" id="step1" >
+
+					<div class="add-fill-reset">
+						<button class="add-btn add-fcn" id="step3" > <i class="fas fa-plus"></i> Add</button>
+						<button class="fill-btn" id="step4"type="button" data-toggle="modal" data-target="#myModal"><i class="fas fa-paste"></i> Fill</button>
+						<button class="res-btn" id="step5"><i class="fas fa-redo-alt"></i> Reset</button>
+					</div>
 					<table class="input-table">
-						<tr>
+						<tr >
+							<th class="course-code-col">Course Code</th>
 							<th>Letter Mark</th>
 							<th>No. of Units</th>
 						</tr>
 						<tr class="input-row">
+							<td class="course-code-col">
+								<input class="course-code"></input>
+							</td>
 							<td>
 								<select class="input-select grade-select" name="grade">
 									<option value="-" selected="selected">-</option>
@@ -58,6 +95,7 @@
 									<option value="2.00">C</option>
 									<option value="1.00">D</option>
 									<option value="0.00">F</option>
+									<option value="0.00">W</option>
 								</select>
 							</td>
 							<td>
@@ -65,6 +103,7 @@
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3" selected="selected">3</option>
+									<option value="4">4</option>
 									<option value="5">5</option>
 									<option value="6">6</option>
 								</select>
@@ -72,17 +111,164 @@
 							<td class="delete-btn">x</td>
 						</tr>
 					</table>
-					<button class="add-btn">Add</button>
+
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" role="dialog">
+						<div class="modal-dialog">
+
+						  <!-- Modal content-->
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <button type="button" class="close" data-dismiss="modal">&times;</button>
+							  <h4 class="modal-title">Auto Fill Up</h4>
+								<p>Go to your AISIS account and head to MY GRADES. Select the ALL GRADES view and copy the entire table</p>
+							  <a  class ="modal-title go-to-aisis" href="http://aisis.ateneo.edu" target="_blank">Go to AISIS <i class="fas fa-sign-in-alt"></i></a>
+							  <h5 class="modal-error">*Invalid input</h5>
+							</div>
+							<div class="modal-body">
+								<textarea class="txt-area"></textarea>
+							</div>
+							<div class="modal-footer">
+							<!-- button on close and to fill up -->
+							  <button type="button" class="modal-fill-btn" data-dismiss="modal">Fill Up</button>
+							  <button type="button" class="modal-cl-btn" data-dismiss="modal">Cancel</button>
+							</div>
+						  </div>
+
+						</div>
+					</div>
 				</div>
+				<!---->
+
+				<!-- <h2 class="desc-instructions" >Instructions <a data-toggle="modal" data-target="#myModal2">Here!</a></h2><br> -->
+
+			<!-- Modal -->
+					<div class="modal fade" id="myModal2" role="dialog">
+						<div class="modal-dialog">
+
+						  <!-- Modal content-->
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <button type="button" class="close" data-dismiss="modal">&times;</button>
+							  <h4 class="modal-title">Instructions</h4>
+							</div>
+							<div class="modal-body">
+
+							  <p class="modal-p">
+
+								HOW TO USE CUMULATIVE QPI CALCULATOR<br><br>
+								<strong>STEP 1:</strong> Copy grades from AISIS website.<br>
+								<strong>STEP 2:</strong> Click the FILL button and paste your grades in the pop-up text field. Click FILL UP to automatically add your grades into the app.<br>
+								<strong>STEP 3:</strong> Enter your DESIRED CUMULATIVE QPI in the provided text field<br>
+								<strong>STEP 4:</strong> Enter the number of units you have this current semester<br>
+								<strong>STEP 5:</strong> View MINIMUM REQUIRED QPI to see what QPI you need to get for the current semester to reach your TARGET END QPI<br><br>
+
+								NOTE: Subjects with an NSTP, INTAC, or PE course code is automatically excluded when filling up your grades<br>
+								</p>
+
+							</div>
+						  </div>
+						</div>
+					</div>
+
 			</div>
+
+
+
+
+
 			<div class="output-card-container">
-				<div class="card output-card">
+				<div class="output-card" id="step2" >
 					<span class="qpi-heading">Your QPI</span>
 					<span class="qpi-display">-</span>
 				</div>
-				<small>Designed and developed by <a href="http://galacemiguel.github.io/">Miguel N. Galace</a>.</small>
+
+			<div class="wrap-collapsible">
+				<input id="collapsible" class="toggle" type="checkbox">
+				<label for="collapsible" class="lbl-toggle">Cumulative QPI Calculator</label>
+				<div class="collapsible-content">
+					<div class="content-inner">
+							<div class="output-card2">
+								<button class="intro-btn" href="javascript:void(0);" onclick="startIntro();"><i class="fas fa-question-circle"></i> How To Use</button>
+								<div id="step8" class="output-card2-display-block" >
+									<span class="qpi-heading">Minimum Required QPI</span>
+									<span class="qpi-display2 target-qpi">2.5</span>
+								</div>
+								<div id="step6" class="output-card2-display-block" >
+									<span class="qpi-heading">Desired Cumulative QPI</span>
+									<input class="target-end qpi-display2 qpi-display2-input" value="2.5">
+								</div>
+								<div id="step7" class="output-card2-display-block">
+									<span class="qpi-heading" >Units Left to Take</span>
+									<input class="sem-units qpi-display2 qpi-display2-input" value="18"></input>
+								</div>
+							</div>
+					    </div>
+				    </div>
+			    </div>
+
+
+
+				<small class="by-text">Designed and developed by the <a href="http://compsat.org">Computer Society of the Ateneo</a>.
+				</small>
 			</div>
-		</div>
 	</section>
+
+	<script type="text/javascript">
+		function startIntro(){
+			var intro = introJs();
+			intro.setOption('showStepNumbers', false);
+			intro.setOption('showBullets', false);
+				intro.setOption('showProgress', true);
+				intro.setOptions({
+					steps: [
+						{
+							intro: "Welcome to the new CompSAt Cumulative QPI Calculator! Let's take a tour on how to get started."
+						},
+						{
+							intro: "We can now help you figure out what QPI you need to meet your target QPI."
+						},
+						{
+							intro: "First, we'll need to know your current standing. Open up the MY GRADES page on AISIS and select ALL GRADES, then click on DISPLAY GRADES."
+						},
+						{
+							intro: "From there, highlight and copy all your grades from the first row down, beginning after the table headers."
+						},
+						{
+							element: document.querySelectorAll('#step4')[0],
+							intro: "Then, paste them into the site after clicking on this button."
+						},
+						{
+							intro: "Your grades should then be automatically added below."
+						},
+						{
+							element: document.querySelectorAll('#step6')[0],
+							intro: "Next, indicate here your target QPI for the end of the semester (or for the year or even until you graduate!).",
+							position: 'left'
+						},
+						{
+							element: document.querySelectorAll('#step7')[0],
+							intro: "Then, indicate here the number of units you're taking for that period.",
+							position: 'left'
+						},
+						{
+							element: document.querySelectorAll('#step8')[0],
+							intro:  "Our QPI calculator will then analyze your grades and give you the minimum QPI you'll need to reach your goal!",
+							position: 'left'
+						},
+						{
+							intro: "You're all set! We know you can make the grade! <br> Love, CompSAt ❤"
+						}
+					]
+				});
+
+				intro.start();
+		}
+	</script>
+
+
+
+
 </body>
+
 </html>
