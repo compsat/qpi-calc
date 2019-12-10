@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<title>ChknGo</title>
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	 <!--- Bootstrap Style Sheet --->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Main CSS for the Website -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!-- Make Category CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/landingPage.css' %}">
+
+	<!--- Work Sans font --->
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+
+	<!-- For the image -->
+	<style type="text/css">
+		.jumbotron {
+			background-size: cover;
+			background-image: url({% static 'imgs/jumbotron-img-bnw.jpg'%});
+			background-color: #D8A53E;
+		    background-blend-mode: multiply;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="jumbotron">
+		<div class="container">
+			<div class="img">
+				<img src="{% static 'imgs/logo.svg' %}" class="img-logo" alt="logo">
+			</div>
+			<!-- Search bar -->
+			<form class="row search-row" action="{% url 'search:searchposts' %}" method="GET" value="{{request.GET.q}}">
+				<div class="col-sm">
+					<input class="form-control search-bar" type="text" placeholder="Looking for a restaurant?" aria-label="Search" name="q" value="{{request.GET.q}}">
+				</div>
+				<div class="col-sm">
+					<button type="submit" class="btn search-btn" name="submit" value="Search">Search</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="container bot-con">
+		<h2 class="exp-cat">Explore Categories</h2>
+		<!-- Categories divided into 3 per row -->
+
+		{% block categ %}
+
+		{% for category in category_list %}
+
+		{% if forloop.first %}
+			<div class="row cat-row">
+		{% endif %}
+
+				<a href="#" class="col-sm cat-col shadow"><div><h4>{{ category.CatName }}</h4></div></a>
+			
+		{% if forloop.counter == 3 %}
+			</div>
+			<div class="row cat-row">
+		{% endif %}
+
+		{% if forloop.last %}
+		</div>
+		{% endif %}
+
+			
+		{% endfor %}
+
+		{% endblock %}
+
+	</div>
+
+	<!-- scripts to make everything smooth -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

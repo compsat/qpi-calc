@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+    <title>ChknGo</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--- Bootstrap Style Sheet --->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Main CSS for the Website -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!-- Make Category CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/make_category.css' %}">
+
+    <!-- Work Sans Font -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<form class="cat-form" method = "POST" name = 'CategoryForm'>
+    	{% csrf_token %}
+    	{{ form.as_p }}
+    	<button class = "btn upload-btn" type="submit">Upload Category</button>
+	</div>
+</form>
+</body>
+</html>

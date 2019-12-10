@@ -1,0 +1,244 @@
+/* Resto Profile */
+.outer-div {
+	background-color: white;
+	border-radius: 15px;
+}
+
+.avbtly {
+	text-align: center;
+}
+
+.avbtly-box {
+	border-top: 1px solid #C4C4C4;
+}
+
+.resto-img {
+	width: inherit;
+	height: 100%;
+}
+
+.resto-img-col {
+	padding: 0;
+}
+
+.supplier-info {
+	text-align: left;
+}
+
+.btn-menu {
+	margin-left: inherit;
+	margin-right: inherit;
+}
+
+.btn-option {
+	background-color: #FDC758;
+	color: #323031;
+	border: 1px solid #323031;
+}
+
+.btn-option:hover {
+	background-color: #323031;
+	color: white;
+}
+/******************************/
+
+/* Wait list */
+.waitlist-container {
+	background-color: #FDC758;
+	display: none;
+}
+
+.waitlist-title {
+	text-align: center;
+	color: black;
+}
+
+.waitlist-div {
+	margin: 0 0 1.5vw 0;
+	padding: 1vw;
+}
+
+.wait-menu {
+	padding: 0 !important;
+}
+
+.add-btn {
+	background-color: #323031;
+	color: white;
+}
+
+.add-btn:active, .add-btn:hover, .back-btn:active, .back-btn:hover {
+	background-color: white;
+	color: black;
+}
+
+.wait-row {
+	background-color: #FFFFFF;
+	border-radius: 5px;
+}
+
+.confirm-btn, .confirm-btn:visited, .confirm-btn:hover {
+	background-color: #17da10;
+	border-right: 2px solid #119d0c;
+	border-bottom: 2px solid #119d0c;
+}
+
+.delete-btn, .delete-btn:visited, .delete-btn:hover {
+	background-color: #ee3120;
+	border-right: 2px solid #9d180c;
+	border-bottom: 2px solid #9d180c;
+}
+
+.confirm-btn:active, .delete-btn:active {
+	right: 60vw;
+}
+
+.waitlist-btns {
+	text-align: right;
+}
+/******************************/
+
+/* Wait list modal */
+.modal-title {
+	text-align: center;
+}
+
+.modal-for {
+	width: inherit;
+}
+
+/******************************/
+
+@media (min-width: 320px) {
+	.restoProfile-body {
+		padding: 2vw;
+	}
+
+	.avbtly-box {
+		padding: 5vw 0 5vw 0;
+		border-bottom: none;
+	}
+
+	.display-3 {
+		font-size: 15vw;
+		padding: 5vw;
+	}
+
+	.resto-img {
+		height: inherit;
+		
+	}
+
+	.info-col {
+		padding-top: 4vw;
+		padding-bottom: 4vw;
+	}
+
+	.btn-menu {
+		margin-bottom: 5vw;
+	}
+
+	.btn-option {
+		margin-right: 3vw;
+	}
+	/******************************/
+
+	/* Watilist */
+	.waitlist-container {
+		width: initial;
+		margin-top: 5vw;
+	}
+
+	.waitlistNum {
+		margin-top: 2vw;
+	}
+
+	.waitlist-title {
+		margin-bottom: 5vw;
+	}
+
+	.waitlist-row {
+		margin: 1vw 0 3vw 0;
+		padding: 3vw 0vw 3vw 0vw;
+	}
+	/******************************/
+
+	/* Wait list modal */
+	.modal-title {
+		font-size: 10vw;
+	}
+}
+
+@media (min-width: 760px) {
+	.display-3 {
+		font-size: 8vw;
+	}
+
+	.see-img {
+		margin-right: 0.5vw;
+		width: 3%;
+	}
+
+	.btn-option {
+		width: fit-content;
+	}
+
+	.info-col {
+		padding-top: 1vw;
+		padding-bottom: 1vw;
+	}
+}
+
+@media (min-width: 992px) {
+	.restoProfile-body {
+		padding: 0;
+	}
+
+	.avbtly-box {
+		padding: 2vw 0 2vw 0;
+		border-bottom: 1px solid #C4C4C4;
+	}
+
+	.display-3 {
+		font-size: 5vw;
+		padding: 2vw;
+	}
+
+	.resto-img {
+		height: 100%;
+	}
+
+	.btn-menu {
+		margin-bottom: 1vw;
+	}
+
+	.btn-option {
+		margin-right: 1vw;
+	}
+
+	/* Waitlist */
+	.waitlist-container {
+		width: 40%;
+		margin-top: 5vw;
+		padding: 2vw;
+	}
+
+	.waitlistNum {
+		margin-top: 0.5vw;
+	}
+
+	.waitlist-title {
+		margin-bottom: 1.5vw;
+	}
+
+	.waitlist-row {
+		margin: 0 0 1.5vw 0;
+		padding: 1vw;
+	}
+	/******************************/
+
+	/* Wait list modal */
+	.modal-title {
+		font-size: 2vw;
+	}
+}

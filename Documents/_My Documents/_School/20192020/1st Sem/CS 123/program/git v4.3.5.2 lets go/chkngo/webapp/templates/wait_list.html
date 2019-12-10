@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wait List Page</title>
+</head>
+<body>
+    <h1>Heewoooooo waitlist pagee deeessuuuu~</h1>
+    <form method = "POST" name = 'ReviewUploadForm'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class = "btn btn-outline-info" type="submit" >Add WaitList entry</button>
+</body>
+</html>

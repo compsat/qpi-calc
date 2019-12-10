@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	{% load static %}
+	<title>ChknGo</title>
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!--- Bootstrap Style Sheet --->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<!-- chkngo stylesheet -->
+	<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+	<!-- login stylesheet -->
+	<link rel="stylesheet" href="{% static 'css/login.css' %}">
+	<!-- Work Sans Font -->
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="d-flex justify-content-center">
+			<div class="d-flex login-container rounded">
+				<div class="col-sm">
+					<div class="row"><h1 class="login-text">Login</h1></div>
+					<form method = "POST" class = "form-div">
+						{% csrf_token %}
+						{{ form.as_p }}
+<!-- 						
+						<div class="form-group">
+							<label for="username">Username:</label>
+							<input type="usename" class="form-control" id="email">
+						</div>
+						<div class="form-group">
+							<label for="pwd">Password:</label>
+							<input type="password" class="form-control" id="pwd">
+						</div>
+						<div class="form-group form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox"> Remember me
+							</label>
+						</div> -->
+						<button type="submit" class="btn btn-success float-right" href = '{% url "LandingPage" %}'>Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>	
+
+	<!-- scripts to make everything smooth -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+
+</body>
+</html>

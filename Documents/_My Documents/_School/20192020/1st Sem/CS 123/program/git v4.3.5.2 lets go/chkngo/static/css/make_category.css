@@ -1,0 +1,49 @@
+.errorlist {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0;
+	padding: 0.5vw 0 0.5vw 1.5vw;
+	width: 100%;
+	border-radius: 5px;
+	background-color: #AFFAFA;
+	margin-bottom: 1vw;
+}
+
+.cat-form {
+	width: fit-content;
+}
+
+.container {
+	width: fit-content;
+	margin-top: 5vw;
+	padding: 1vw;
+}
+
+label[for=id_CatName] {
+	font-size: 2vw;
+}
+
+#id_CatName {
+	display: block;
+	padding: 1vw;
+	font-size: 2vw;
+}
+
+.upload-btn {
+    background-color: white;
+    border: 1px solid #323031;
+    border-radius: 5px;   
+}
+.upload-btn:hover, .upload-btn:hover {
+    background-color: #323031;
+    border-color: none;
+    color: white;
+}
+
+.upload-btn, #id_CatName {
+	width: 100%;
+}
+
+p {
+	margin-bottom: 2vw;
+}

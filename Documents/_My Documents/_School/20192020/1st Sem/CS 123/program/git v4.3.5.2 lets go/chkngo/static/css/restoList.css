@@ -1,0 +1,46 @@
+/*body{
+	padding: 3vw;
+	background-color: #fdc758;
+}*/
+
+.resto-a, .resto-a:hover {
+	text-decoration: none;
+	color: black;
+}
+
+.no-results {
+	margin: auto;
+	text-align: left;
+}
+
+.resto-listing{
+	background-color: white;
+	width: 100%;
+}
+
+@media (min-width: 320px) {
+	.resto-listing{
+		margin: 2vw;
+		margin-top: 4vw;
+		padding: 1vw;
+	}
+	.resto-list-row {
+		margin-left: 1vw;
+		margin-right: 1vw;
+	}
+}
+
+@media (min-width: 992px) {
+	/*body{
+		padding: 5vw;
+	}*/
+	.resto-img{
+		width: 100%;
+		height: 100%;
+	}
+	.resto-listing{
+		padding: 1vw;
+		margin: 1vw;
+		height: auto;
+	}
+}

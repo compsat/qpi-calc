@@ -1,0 +1,94 @@
+.editInput {
+	width: 100%;
+	/*display: inline-block;*/
+	white-space: nowrap;
+	background-color: #F9F9F9;
+	border-radius: 5px;
+}
+
+#id_Open_time, #id_Closing_time, #id_Address, #id_Landline, #id_Contact {
+	padding: 0.5vw;
+}
+
+.input-btn {
+	background-color: white;
+	border: 1px solid #323031;
+	border-radius: 5px;
+}
+
+.input-btn:hover, .logout-btn:hover {
+	background-color: #323031;
+	border-color: none;
+	color: white;
+}
+
+.side-menu-btn {
+	color: black;
+	text-decoration: none;
+}
+
+.side-menu-btn:hover, .side-menu-btn:visited {
+	color: #FBC02D;
+	text-decoration: none;
+}
+
+.edit-area {
+	margin-top: 3.5vw;
+}
+
+@media (min-width: 320px) {
+	.title {
+		margin-bottom: 5vw;
+		font-size: 12vw;
+	}
+
+	.mng-side-menu {
+		text-align: left;
+		margin-bottom: 3vw;
+	}
+
+	.editInput {
+		padding: 4vw;
+	}
+
+	#id_Open_time, #id_Closing_time, #id_Address, #id_Landline, #id_Contact {
+		
+		margin-bottom: 1vw;
+	}
+
+	label[for=id_Open_time], label[for=id_Closing_time], label[for=id_Address], label[for=id_Landline], label[for=id_Contact] {
+		width: 30vw;
+	}
+}
+
+@media (min-width: 992px) {
+	.title {
+		font-size: 4vw;
+		margin-bottom: 3vw;
+	}
+
+	.mng-side-menu {
+		text-align: right;
+	}
+
+	.editInput {
+		padding: 2vw;
+	}
+
+	#id_Open_time, #id_Closing_time {
+		width: 10vw;
+	}
+
+	#id_Address, #id_Landline, #id_Contact {
+		width: 15vw;
+	}
+
+	#id_Open_time, #id_Closing_time, #id_Address, #id_Landline, #id_Contact {
+		margin-bottom: 0;
+	}
+
+
+	label[for=id_Open_time], label[for=id_Closing_time], label[for=id_Address], label[for=id_Landline], label[for=id_Contact] {
+		width: 8vw;
+	}
+}

@@ -1,0 +1,127 @@
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+/*.jumbotron {
+	background-image: rgb(253, 199, 88), url('../imgs/jumbotron-img-bnw.jpg') no-repeat;
+	background-size: cover;
+	background-blend-mode: screen;
+	background-image: url({% static 'imgs/jumbotron-img-bnw.jpg'%});
+	background-color: #fdc758;
+    background-blend-mode: luminosity;
+}*/
+
+.img-logo {
+	z-index: 1;
+}
+
+.search-row {
+	margin: auto; 
+	width: fit-content;
+	z-index: 1;
+}
+
+.img {
+	text-align: center;
+	margin-bottom: 3vw;	
+}
+
+.exp-cat {
+	margin-bottom: 3vw;
+	text-align: center;
+}
+
+.cat-col {
+	background-size: 0;
+}
+
+.cat-col, .cat-col:hover {
+	border-radius: 15px;
+	text-decoration: none;
+	color: black;
+}
+
+.cat-col:hover {
+	background-color: #fdc758;
+	transition: background 1s;
+}
+
+.cat-col:active {
+	background-color: #323031;
+	background-size: 100%;
+	color: white;
+}
+
+.search-btn:hover {
+	background-color: #323031;
+	border-color: none;
+	color: white;
+}
+
+.search-btn {
+	background-color: none;
+	color: white;
+	border: 1px solid white;
+}
+
+@media (min-width: 320px) {
+	.jumbotron, .layer {
+		height: 60vw;
+	}
+
+	.img-logo {
+		width: 20%;
+	}
+	
+	.cat-col {
+		margin: 2vw 5vw 2vw 5vw;
+		padding: 10vw;
+		text-align: center;
+	}
+
+	.search-bar {
+		width: 100%;
+		margin-bottom: 2vw;
+	}
+
+	.search-btn {
+		width: 100%;
+	}
+}
+
+@media (min-width: 760px) {
+	
+}
+
+@media (min-width: 992px) {
+	.jumbotron, .layer {
+		height: 20vw;
+	}
+
+	.img-logo {
+		width: 8%;
+	}
+
+	.search-bar {
+		width: 35vw;
+	}
+
+	.search-btn,.search-btn:hover {
+		margin-left: 1vw;
+	}
+
+	.col-sm {
+		padding: 0;
+	}
+
+	.cat-row {
+		text-align: center;
+		margin-bottom: 2.25vw;
+	}
+
+	.cat-col, .cat-col:hover {
+		margin: 0 1vw 0 1vw;
+		padding: 3.5vw;
+	}
+}		

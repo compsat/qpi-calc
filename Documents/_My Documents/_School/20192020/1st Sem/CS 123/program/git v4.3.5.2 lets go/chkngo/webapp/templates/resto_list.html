@@ -1,0 +1,115 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>ChknGo Search</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <!--- Bootstrap Style Sheet --->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Main CSS for the Website -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!-- Main CSS for the Website -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/restoList.css' %}">
+    <!-- nav CSS -->
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+
+    <!-- Work Sans Font -->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
+</head>
+<body style="background: url('{% static 'imgs/background-img.jpg' %}'); background-color: #FDC758; background-blend-mode: multiply;">
+
+    {% include 'nav.html' %}
+
+    <div class="container">
+        <div class="row resto-list-row">
+        {% if submitbutton == 'Search' and request.GET.q != '' %}
+            {% if results %}
+            <h1>Results for <span class="font-weight-bold">"{{ request.GET.q }}"</span></h1>
+        </div>
+                {% for result in results %}
+                <!-- Div for restaurant listing -->
+                <div class="resto-listing rounded">
+                    <a class="resto-a" href="/restaurants/{{ result.RestoID }}">
+                        <div class="row resto-list-row">
+                            <div class="col-sm-3">
+                                <!-- Image for restaurant listing -->
+                                <img src="" class="img-thumbnail resto-img">
+                            </div>
+                            <div class="col-sm-7">
+                                    <div class="row resto-list-row font-weight-lighter">
+                                        <!-- Insert type of restaurant ie: cafe, etc.-->
+                                        <h5>Category</h5>
+                                    </div>
+                                    <div class="row resto-list-row">
+                                        <!-- Restaurant name here -->
+                                        <h1 class="font-weight-bold">{{ result.RestoID }}</h1>
+                                    </div>
+                                    <div class="row resto-list-row">
+                                        <!-- City of restaurant -->
+                                        <h4>City</h4>
+                                    </div>
+                                    <div class="row resto-list-row">
+                                        <!-- Full address of restaurant-->
+                                        <h6 class="font-weight-light">Insert the Full Address here</h6>
+                                    </div>
+                            </div>
+                        </div>
+                    </a>       
+                </div>
+                <!--  -->
+                {% endfor %}
+            {% else %}
+            
+            <div class="row resto-list-row">
+                <h1>Results for <span class="font-weight-bold">"{{ request.GET.q }}"</span></h1>
+            </div>
+            <div class="resto-listing rounded">
+                <div class="row resto-list-row">
+                    <h6 class="no-results">No search results for this query</h6>  
+                </div>
+            </div>  
+            {% endif %}
+        {% else %}
+            <div class="resto-listing row">
+                <h1 style="width: 100%;">This is the search page!</h1>
+                <h4 style="margin-top: 1vw;">Use the navigation bar to go around the website</h4>
+            </div>
+        {% endif %}
+    </div>
+
+
+    <!-- {% if submitbutton == 'Search' and request.GET.q != '' %}
+        {% if results %}
+        <h1>Results for <b>{{ request.GET.q }}</b></h1>
+        <br/><br/>
+            {% for result in results %}
+            <p> <a href = "/restaurants/{{ result.RestoID }}">{{ result.RestoID }}</a> </p>
+            <br/>
+            {% endfor %}
+        {% else %}
+        No search results for this query
+        {% endif %}
+    {% endif %} -->
+
+    <!-- {% if messages %}
+    {% for message in messages %}
+        <div class = "alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% endif %}
+    {% for resto in resto_list %}
+    <p> <a href = "{{ r.RestoID }}">{{ resto.RestoID }}</a> </p>
+    {% endfor %} -->
+    
+    <!-- scripts to make everything smooth -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+body{
+	padding: 5vw;
+	background-color: #fdc758;
+}
+.login-container{
+	background-color: white;
+	padding: 5vh;
+}
+@media (min-width: 320px) {
+	.login-container{
+		margin-top: 15vh;
+	}
+}
+
+@media (min-width: 992px) {
+	.login-container{
+		width: 40%;
+		margin-top: 10%;
+	}
+	.login-text{
+		margin-bottom: 2vh;
+	}
+}

@@ -1,0 +1,50 @@
+nav {
+	background-color: #FDC758;
+}
+
+.nav-opt {
+	width: 100%;
+}
+
+.search-btn:hover {
+	background-color: #323031;
+	border-color: none;
+	color: white;
+}
+
+.search-btn {
+	background-color: none;
+	border: 1px solid #323031;
+}
+
+@media (min-width: 320px) {
+	.search-btn-col {
+		margin-top: 8px;
+	}
+
+	.nav-option {
+		height: initial;
+	}
+}
+
+@media (min-width: 760px) {
+	.search-btn-col {
+		left: 0;
+		margin-top: 0;
+		padding: 0;
+	}
+
+	.nav-option {
+		height: 1vw;
+	}
+}
+
+@media (min-width: 992px) {
+	.search-bar {
+		width: 45vw;
+	}
+
+	.search-btn {
+		margin-top: 0;
+	}
+}		

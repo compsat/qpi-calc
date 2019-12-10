@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<h1>Search Page</h1>
+
+<br/>
+<body>
+	{% csrf_token %}
+	<form action="{% url 'search:searchposts' %}" method="GET" value="{{request.GET.q}}">
+	Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search a place"/>
+	<input type="submit" name="submit" value="Search"/>
+	</form>
+
+
+	{% if submitbutton == 'Search' and request.GET.q != '' %}
+		{% if results %}
+		<h1>Results for <b>{{ request.GET.q }}</b></h1>
+		<br/><br/>
+
+			{% for result in results %}
+			<p> <a href = "/restaurants/{{ result.RestoID }}">{{ result.RestoID }}</a> </p>
+			<br/>
+			{% endfor %}
+		{% else %}
+		No search results for this query
+		{% endif %}
+	{% endif %}
+</body>
+</html>

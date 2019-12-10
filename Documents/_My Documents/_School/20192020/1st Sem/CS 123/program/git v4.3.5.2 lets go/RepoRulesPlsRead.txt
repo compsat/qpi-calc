@@ -1,0 +1,6 @@
+Delete the ff before commiting:
+1) 0001_initial.py from webapp/migrations
+2)0001_initial.cpython-37.pyc from webapp/migrations/_pycache_
+3) db.sqlite3
+
+This is to ensure whatever you push into your branch has a clean database, Thank you!

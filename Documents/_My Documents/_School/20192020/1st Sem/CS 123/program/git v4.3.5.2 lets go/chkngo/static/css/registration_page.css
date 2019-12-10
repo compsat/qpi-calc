@@ -1,0 +1,117 @@
+.fancy-line {
+    left: -50vw;
+    width: 100%;
+    height: 0.25vw;
+    background: linear-gradient(90deg, rgba(50,48,49,1) 0%, rgba(253,199,88,1) 100%);
+}
+
+p {
+    margin-bottom: 0;
+    margin: 1vw 0 1vw 0;
+}
+
+.container {
+    width: fit-content;
+    border-radius: 10px;
+}
+.form-group {
+    border: none;
+    margin: 0;
+    height: fit-content;
+}
+
+#id_Category {
+    width: 100%;
+}
+    
+.helptext {
+    display: block;
+}
+
+.input-btn {
+    background-color: white;
+    border: 1px solid #323031;
+    border-radius: 5px;
+}
+.input-btn:hover {
+    background-color: #323031;
+    border-color: none;
+    color: white;
+}
+
+@media (min-width: 320px) {
+    .form-div {
+        padding: 0 5vw 0 5vw;
+    }
+
+    #id_user_type {
+        padding: 1.5vw 0 1.5vw 0;
+    }
+
+    /* Form labels so they're aligned */
+    label[for=id_first_name], label[for=id_last_name], label[for=id_username], 
+    label[for=id_user_type], label[for=id_email], label[for=id_contact], label[for=id_password1] {
+        width: 22vw;
+    }
+
+    label[for=id_RestoID], label[for=id_Open_time], label[for=id_Closing_time], 
+    label[for=id_Address], label[for=id_Landline], label[for=id_Contact] {
+        width: 28vw;
+    }
+
+    /* Form inputs so they're aligned */
+    #id_first_name, #id_last_name, #id_username, 
+    #id_email, #id_user_type, #id_contact, #id_password1, #id_password2 {
+        width: 55vw;
+    }
+
+    #id_RestoID, #id_Open_time, #id_Closing_time, 
+    #id_Address, #id_Landline, #id_password2, #id_Contact {
+        width: 100%;
+    }
+
+    .input-btn {
+        margin-top: 4vw;
+        padding: 2vw 5vw;
+        width: 100%;
+    }
+}
+
+@media (min-width: 760px) {
+    
+}
+
+@media (min-width: 992px) {
+    .form-div {
+        padding: 0;
+    }
+
+    #id_user_type {
+        padding: 0.25vw 0 0.25vw 0;
+    }
+
+    /* Form labels so they're aligned */
+    label[for=id_first_name], label[for=id_last_name], label[for=id_username], 
+    label[for=id_user_type], label[for=id_email], label[for=id_contact], label[for=id_password1] {
+        width: 6.5vw;
+    }
+
+    label[for=id_RestoID], label[for=id_Open_time], label[for=id_Closing_time], 
+    label[for=id_Address], label[for=id_Landline], label[for=id_Contact] {
+        width: 8vw;
+    }
+
+    /* Form inputs so they're aligned */
+    #id_first_name, #id_last_name, #id_username, 
+    #id_email, #id_user_type, #id_contact, #id_password1, #id_password2,
+    #id_RestoID, #id_Open_time, #id_Closing_time, 
+    #id_Address, #id_Landline, #id_password2, #id_Contact{
+        width: 15vw;
+    }
+
+    .input-btn {
+        margin-top: 0;
+        padding: 0.5vw 5vw;
+        width: initial;
+    }
+}       

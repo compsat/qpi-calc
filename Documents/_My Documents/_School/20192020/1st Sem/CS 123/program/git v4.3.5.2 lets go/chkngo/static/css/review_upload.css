@@ -1,0 +1,84 @@
+.review-title {
+	margin-bottom: 2vw;
+}
+
+.review-div {
+	width: 50%;
+	background-color: white;
+	border-radius: 15px;
+}
+
+#charcount {
+	text-align: right;
+}
+
+label[for=id_Rating] {
+	margin-right: 3vw;
+	margin-bottom: 0;
+}
+
+.upload-btn {
+	/*background-color: #FDC758;*/
+	background-color: white;
+	color: #323031;
+	border: 1px solid #323031;
+}
+
+.upload-btn:hover {
+	background-color: #323031;
+	color: white;
+}
+
+#id_ReviewDetail {
+	width: 100%;
+	display: block;
+	padding: 1vw;
+}
+
+@media (min-width: 320px) {
+	body {
+		padding-top: 70vw;
+		padding-bottom: 70vw;
+	}
+
+	.review-title {
+		font-size: 10vw;
+	}
+
+	.review-div {
+		width: initial;
+		padding: 4vw;
+	}
+
+	label[for=id_ReviewDetail], label[for=id_Rating] {
+		font-size: 6vw;
+	}
+
+	#id_Rating {
+		width: 15vw;
+	}
+}
+
+@media (min-width: 992px) {
+	body {
+		padding-top: 14vw;
+		padding-bottom: 14vw;
+	}
+
+	.review-title {
+		font-size: 4vw;
+	}
+
+	.review-div {
+		width: 50%;
+		padding: 2vw;
+	}
+
+	label[for=id_ReviewDetail], label[for=id_Rating] {
+		font-size: 2vw;
+	}
+
+	#id_Rating {
+		width: 5vw;
+	}
+}
